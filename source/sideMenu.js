@@ -27,6 +27,9 @@ export default class sideMenu extends Component {
 				<TouchableOpacity style={styles.button}>
 					<Text style={styles.buttonText}>Button</Text>
 				</TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress = {()=> alert("I hate Jim!")}  >
+					<Text style={styles.buttonText}>MyNameIsJimAndIHateMerlock</Text>
+				</TouchableOpacity>
 			</View>
 		);
 	}
