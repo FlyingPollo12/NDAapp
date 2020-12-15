@@ -2,26 +2,82 @@ import React, {Component} from 'react';
 import { Text,
 	View,
 	SafeAreaView,
+    ScrollView,
 	Image,
 	TouchableOpacity,
 	StyleSheet,
 	Dimensions,
 } from 'react-native';
 import Modal from 'react-native-modal';
-
+import {COLORS} from './colors.js';     //Color Sheet
 import SideMenu from './sideMenu.js';
 
 const WIDTH = Dimensions.get("window").width;
 const HEIGHT = Dimensions.get("window").height;
 
+export default class mainScreen extends Component {
+	constructor(props: Props) {
+		super(props);
+		this.state = {
+			isSideMenuVisible: false,
+		}
+	}
+	
+	render() {
+		return 	(
+            <ScrollView>
+                <SafeAreaView>
+                    {/*SideMenu*/}
+                    <Modal
+                        isVisible={this.state.isSideMenuVisible}
+                                onBackdropPress={this.toggleSideMenu}
+                                onSwipeComplete={this.toggleSideMenu}
+                                animationIn="slideInLeft" 
+                                animationOut="slideOutLeft" 
+                                swipeDirection="left"
+                                style={styles.sideMenuStyle} 
+                    >
+                        <SideMenu/>
+                    </Modal>
+                    {/*End Side Menu*/}
+                    
+                    {/*Hamburger Button*/}
+                    <View style={styles.header}>
+                        <TouchableOpacity style={styles.fakeIcon} onPress={()=> this.toggleSideMenu()}></TouchableOpacity>
+                        <Text style={styles.headerText}>Menu</Text>
+                        <View style={{flex: 1}}></View>
+                    </View>
+                    {/*End Hamburger Button*/}
+                    
+                    {/*Logo & Text*/}
+                    <View style ={styles.logoContainer}>
+                        <Image
+                            style={styles.logo}
+                            source={require('./images/NDA_LOGO_V.png')}
+                        />
+                        <Text style = {styles.text}
+                            >Give us your money, we will use it for the children. All of the children.</Text>
+                    </View>
+                   {/*End Logo*/}
+                    
+                </SafeAreaView>
+            </ScrollView>
+		);
+	}
+	
+	toggleSideMenu = () => {
+		this.setState({ isSideMenuVisible: !this.state.isSideMenuVisible })
+	}
+}
+
 const styles = StyleSheet.create({
 	header: {
-		backgroundColor: '#333333',
+		backgroundColor: COLORS.GRAY,
 		padding: 50,
 		flexDirection: 'row',
 	},
 	headerText: {
-		color: '#ffffff',
+		color: COLORS.WHITE,
 		fontSize: 42,
 		textAlign: 'center',
 		flex: 4,
@@ -39,55 +95,19 @@ const styles = StyleSheet.create({
 	},
     logo: {
         width: WIDTH * 1,
-        height: HEIGHT * .515,
+        height: HEIGHT * .55,
         paddingTop: 50,
+        resizeMode: 'contain',
     },
     logoContainer: {
         justifyContent: 'center',
         alignItems: 'center',
     },
+    text: {
+        color: COLORS.NDA_BLUE,
+        fontSize: 24,
+        textAlign: 'center',
+        paddingLeft: 50,
+        paddingRight: 50,
+    },
 });
-
-export default class mainScreen extends Component {
-	constructor(props: Props) {
-		super(props);
-		this.state = {
-			isSideMenuVisible: false,
-		}
-	}
-	
-	render() {
-		return 	(
-			<SafeAreaView>
-				<Modal
-					isVisible={this.state.isSideMenuVisible}
-            				onBackdropPress={this.toggleSideMenu}
-            				onSwipeComplete={this.toggleSideMenu} 
-            				animationIn="slideInLeft" 
-            				animationOut="slideOutLeft" 
-            				swipeDirection="left"
-            				style={styles.sideMenuStyle} 
-				>
-					<SideMenu/>
-				</Modal>
-				<View style={styles.header}>
-					<TouchableOpacity style={styles.fakeIcon} onPress={()=> this.toggleSideMenu()}></TouchableOpacity>
-					<Text style={styles.headerText}>Menu</Text>
-					<View style={{flex: 1}}></View>
-				</View>
-                
-                <View style ={styles.logoContainer}>
-                    <Image 
-                        style={styles.logo}
-                        source={require('./images/NDA_LOGO_V.png')}
-                        />
-                </View>
-                
-			</SafeAreaView>
-		);
-	}
-	
-	toggleSideMenu = () => {
-		this.setState({ isSideMenuVisible: !this.state.isSideMenuVisible })
-	}
-}
