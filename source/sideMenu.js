@@ -15,12 +15,14 @@ export default class sideMenu extends Component {
 		}
 	}
 	
+	parentFunction = (msg) => this.props.parentFunction(msg);
+	
 	render() {
 		return(
 			<View style={styles.page}>
 				<View style={{height: 50}}></View>
-				<TouchableOpacity style={styles.button} onPress={() => Alert.alert("SIKE!")}>
-					<Text style={styles.buttonText}>To new page</Text>
+				<TouchableOpacity style={styles.button} onPress={() => this.parentFunction("donationScreen")}>
+					<Text style={styles.buttonText}>To Donations</Text>
 				</TouchableOpacity>
 				<TouchableOpacity style={styles.button}>
 					<Text style={styles.buttonText}>Button</Text>

@@ -64,6 +64,40 @@ export default class mainScreen extends Component {
             </ScrollView>
 		);
 	}
+			<SafeAreaView>
+				<Modal
+					isVisible={this.state.isSideMenuVisible}
+            				onBackdropPress={this.toggleSideMenu}
+            				onSwipeComplete={this.toggleSideMenu} 
+            				animationIn="slideInLeft" 
+            				animationOut="slideOutLeft" 
+            				swipeDirection="left"
+            				style={styles.sideMenuStyle} 
+				>
+					<SideMenu parentFunction={this.parentFunction}/>
+				</Modal>
+				<View style={styles.header}>
+					<TouchableOpacity style={styles.fakeIcon} onPress={()=> this.toggleSideMenu()}></TouchableOpacity>
+					<Text style={styles.headerText}>Menu</Text>
+					<View style={{flex: 1}}></View>
+				</View>
+                
+                <View style ={styles.logoContainer}>
+                    <Image 
+                        style={styles.logo}
+                        source={require('./images/NDA_LOGO_V.png')}
+                        />
+                </View>
+                
+			</SafeAreaView>
+		);
+	}
+	
+	parentFunction = (msg) => {
+		if (msg == "donationScreen")
+			this.toggleSideMenu();
+			this.props.navigation.navigate("donationScreen");
+		}
 	
 	toggleSideMenu = () => {
 		this.setState({ isSideMenuVisible: !this.state.isSideMenuVisible })
@@ -73,11 +107,13 @@ export default class mainScreen extends Component {
 const styles = StyleSheet.create({
 	header: {
 		backgroundColor: COLORS.GRAY,
+		backgroundColor: '#333333',
 		padding: 50,
 		flexDirection: 'row',
 	},
 	headerText: {
 		color: COLORS.WHITE,
+		color: '#ffffff',
 		fontSize: 42,
 		textAlign: 'center',
 		flex: 4,
@@ -98,6 +134,8 @@ const styles = StyleSheet.create({
         height: HEIGHT * .55,
         paddingTop: 50,
         resizeMode: 'contain',
+        height: HEIGHT * .515,
+        paddingTop: 50,
     },
     logoContainer: {
         justifyContent: 'center',
