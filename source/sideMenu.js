@@ -6,8 +6,6 @@ import { Text,
 	Alert,
 } from 'react-native';
 
-
-
 export default class sideMenu extends Component {
 	constructor (props: Props) {
 		super(props);
@@ -22,16 +20,16 @@ export default class sideMenu extends Component {
 			<View style={styles.page}>
 				<View style={{height: 50}}></View>
 				<TouchableOpacity style={styles.button} onPress={() => this.parentFunction("donationScreen")}>
-					<Text style={styles.buttonText}>To Donations</Text>
+					<Text style={styles.buttonText}>Donations</Text>
 				</TouchableOpacity>
-				<TouchableOpacity style={styles.button}>
-					<Text style={styles.buttonText}>Button</Text>
+				<TouchableOpacity style={styles.button} onPress={() => this.parentFunction("parentScreen")}>
+					<Text style={styles.buttonText}>Parents</Text>
 				</TouchableOpacity>
-				<TouchableOpacity style={styles.button}>
-					<Text style={styles.buttonText}>Button</Text>
+				<TouchableOpacity style={styles.button} onPress={() => this.parentFunction("studentScreen")}>
+					<Text style={styles.buttonText}>Students</Text>
 				</TouchableOpacity>
-                		<TouchableOpacity style={styles.button} onPress = {()=> Alert.alert("I also hate jim! (but with different alert)")}  >
-					<Text style={styles.buttonText}>MyNameIsJimAndIHateMerlock</Text>
+                		<TouchableOpacity style={styles.button} onPress={() => this.parentFunction("alumniScreen")}>
+					<Text style={styles.buttonText}>Alumni</Text>
 				</TouchableOpacity>
 			</View>
 		);
@@ -41,7 +39,6 @@ export default class sideMenu extends Component {
 		this.props.navigation.navigate("newPageScreen");
 	}
 }
-
 
 const styles = StyleSheet.create({
 	page: {

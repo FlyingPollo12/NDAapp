@@ -37,7 +37,7 @@ export default class mainScreen extends Component {
                                 swipeDirection="left"
                                 style={styles.sideMenuStyle} 
                     >
-                        <SideMenu/>
+                        <SideMenu parentFunction={this.parentFunction}/>
                     </Modal>
                     {/*End Side Menu*/}
                     
@@ -64,40 +64,26 @@ export default class mainScreen extends Component {
             </ScrollView>
 		);
 	}
-			<SafeAreaView>
-				<Modal
-					isVisible={this.state.isSideMenuVisible}
-            				onBackdropPress={this.toggleSideMenu}
-            				onSwipeComplete={this.toggleSideMenu} 
-            				animationIn="slideInLeft" 
-            				animationOut="slideOutLeft" 
-            				swipeDirection="left"
-            				style={styles.sideMenuStyle} 
-				>
-					<SideMenu parentFunction={this.parentFunction}/>
-				</Modal>
-				<View style={styles.header}>
-					<TouchableOpacity style={styles.fakeIcon} onPress={()=> this.toggleSideMenu()}></TouchableOpacity>
-					<Text style={styles.headerText}>Menu</Text>
-					<View style={{flex: 1}}></View>
-				</View>
-                
-                <View style ={styles.logoContainer}>
-                    <Image 
-                        style={styles.logo}
-                        source={require('./images/NDA_LOGO_V.png')}
-                        />
-                </View>
-                
-			</SafeAreaView>
-		);
-	}
-	
+
 	parentFunction = (msg) => {
-		if (msg == "donationScreen")
+		if (msg == "donationScreen") {
 			this.toggleSideMenu();
 			this.props.navigation.navigate("donationScreen");
 		}
+		else if (msg == "parentScreen") {
+			this.toggleSideMenu();
+			this.props.navigation.navigate("parentScreen");
+		}
+		else if (msg == "studentScreen") {
+			this.toggleSideMenu();
+			this.props.navigation.navigate("studentScreen");
+		}
+		else if (msg == "alumniScreen") {
+			this.toggleSideMenu();
+			this.props.navigation.navigate("alumniScreen");
+		}
+	
+	}
 	
 	toggleSideMenu = () => {
 		this.setState({ isSideMenuVisible: !this.state.isSideMenuVisible })
