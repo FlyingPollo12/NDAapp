@@ -25,71 +25,41 @@ export default class mainScreen extends Component {
 	
 	render() {
 		return 	(
-            <ScrollView>
-                <SafeAreaView>
-                    {/*SideMenu*/}
-                    <Modal
-                        isVisible={this.state.isSideMenuVisible}
-                                onBackdropPress={this.toggleSideMenu}
-                                onSwipeComplete={this.toggleSideMenu}
-                                animationIn="slideInLeft" 
-                                animationOut="slideOutLeft" 
-                                swipeDirection="left"
-                                style={styles.sideMenuStyle} 
-                    >
-                        <SideMenu/>
-                    </Modal>
-                    {/*End Side Menu*/}
-                    
-                    {/*Hamburger Button*/}
-                    <View style={styles.header}>
-                        <TouchableOpacity style={styles.fakeIcon} onPress={()=> this.toggleSideMenu()}></TouchableOpacity>
-                        <Text style={styles.headerText}>Menu</Text>
-                        <View style={{flex: 1}}></View>
-                    </View>
-                    {/*End Hamburger Button*/}
-                    
-                    {/*Logo & Text*/}
-                    <View style ={styles.logoContainer}>
-                        <Image
-                            style={styles.logo}
-                            source={require('./images/NDA_LOGO_V.png')}
-                        />
-                        <Text style = {styles.text}
-                            >Give us your money, we will use it for the children. All of the children.</Text>
-                    </View>
-                   {/*End Logo*/}
-                    
-                </SafeAreaView>
-            </ScrollView>
-		);
-	}
-			<SafeAreaView>
-				<Modal
-					isVisible={this.state.isSideMenuVisible}
-            				onBackdropPress={this.toggleSideMenu}
-            				onSwipeComplete={this.toggleSideMenu} 
-            				animationIn="slideInLeft" 
-            				animationOut="slideOutLeft" 
-            				swipeDirection="left"
-            				style={styles.sideMenuStyle} 
-				>
-					<SideMenu parentFunction={this.parentFunction}/>
-				</Modal>
-				<View style={styles.header}>
-					<TouchableOpacity style={styles.fakeIcon} onPress={()=> this.toggleSideMenu()}></TouchableOpacity>
-					<Text style={styles.headerText}>Menu</Text>
-					<View style={{flex: 1}}></View>
-				</View>
-                
-                <View style ={styles.logoContainer}>
-                    <Image 
-                        style={styles.logo}
-                        source={require('./images/NDA_LOGO_V.png')}
-                        />
-                </View>
-                
-			</SafeAreaView>
+            		<ScrollView>
+             	   <SafeAreaView>
+             	       {/*SideMenu*/}
+             	       <Modal
+             	           isVisible={this.state.isSideMenuVisible}
+             	                   onBackdropPress={this.toggleSideMenu}
+             	                   onSwipeComplete={this.toggleSideMenu}
+             	                   animationIn="slideInLeft" 
+             	                   animationOut="slideOutLeft" 
+             	                   swipeDirection="left"
+             	                   style={styles.sideMenuStyle} 
+             	       >
+             	           <SideMenu parentFunction={this.parentFunction}/>
+             	       </Modal>
+             	       {/*End Side Menu*/}
+             	       
+            			{/*Hamburger Button*/}
+             	       <View style={styles.header}>
+             	           <TouchableOpacity style={styles.fakeIcon} onPress={()=> this.toggleSideMenu()}></TouchableOpacity>
+             	           <Text style={styles.headerText}>Menu</Text>
+             	           <View style={{flex: 1}}></View>
+             	       </View>
+             	       {/*End Hamburger Button*/}
+             	       
+             		       {/*Logo & Text*/}
+                   	 	<View style ={styles.logoContainer}>
+                   	     		<Image
+                   	      		   style={styles.logo}
+                   	      		   source={require('./images/NDA_LOGO_V.png')}
+                        		/>
+                        		<Text style = {styles.text}>Give us your money, we will use it for the children. All of the children.</Text>
+                    	</View>
+                   		{/*End Logo*/}
+                    </SafeAreaView>
+            	</ScrollView>
 		);
 	}
 	
