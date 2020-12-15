@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import main from './source/mainScreen.js';
-import newPage from './source/newPage.js';
+import donations from './source/donationScreen.js';
 
 
 
@@ -21,7 +21,7 @@ export default class App extends Component {
 			<NavigationContainer>
     				<Stack.Navigator screenOptions={{headerShown: false}}>
     					<Stack.Screen name="mainScreen" component={main} />
-    					<Stack.Screen name="newPageScreen" component={newPage} />
+    					<Stack.Screen name="donationScreen" component={donations} />
     				</Stack.Navigator>
   			</NavigationContainer>
 		);

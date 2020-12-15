@@ -14,6 +14,56 @@ import SideMenu from './sideMenu.js';
 const WIDTH = Dimensions.get("window").width;
 const HEIGHT = Dimensions.get("window").height;
 
+export default class mainScreen extends Component {
+	constructor(props: Props) {
+		super(props);
+		this.state = {
+			isSideMenuVisible: false,
+		}
+	}
+	
+	render() {
+		return 	(
+			<SafeAreaView>
+				<Modal
+					isVisible={this.state.isSideMenuVisible}
+            				onBackdropPress={this.toggleSideMenu}
+            				onSwipeComplete={this.toggleSideMenu} 
+            				animationIn="slideInLeft" 
+            				animationOut="slideOutLeft" 
+            				swipeDirection="left"
+            				style={styles.sideMenuStyle} 
+				>
+					<SideMenu parentFunction={this.parentFunction}/>
+				</Modal>
+				<View style={styles.header}>
+					<TouchableOpacity style={styles.fakeIcon} onPress={()=> this.toggleSideMenu()}></TouchableOpacity>
+					<Text style={styles.headerText}>Menu</Text>
+					<View style={{flex: 1}}></View>
+				</View>
+                
+                <View style ={styles.logoContainer}>
+                    <Image 
+                        style={styles.logo}
+                        source={require('./images/NDA_LOGO_V.png')}
+                        />
+                </View>
+                
+			</SafeAreaView>
+		);
+	}
+	
+	parentFunction = (msg) => {
+		if (msg == "donationScreen")
+			this.toggleSideMenu();
+			this.props.navigation.navigate("donationScreen");
+		}
+	
+	toggleSideMenu = () => {
+		this.setState({ isSideMenuVisible: !this.state.isSideMenuVisible })
+	}
+}
+
 const styles = StyleSheet.create({
 	header: {
 		backgroundColor: '#333333',
@@ -47,47 +97,3 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 });
-
-export default class mainScreen extends Component {
-	constructor(props: Props) {
-		super(props);
-		this.state = {
-			isSideMenuVisible: false,
-		}
-	}
-	
-	render() {
-		return 	(
-			<SafeAreaView>
-				<Modal
-					isVisible={this.state.isSideMenuVisible}
-            				onBackdropPress={this.toggleSideMenu}
-            				onSwipeComplete={this.toggleSideMenu} 
-            				animationIn="slideInLeft" 
-            				animationOut="slideOutLeft" 
-            				swipeDirection="left"
-            				style={styles.sideMenuStyle} 
-				>
-					<SideMenu/>
-				</Modal>
-				<View style={styles.header}>
-					<TouchableOpacity style={styles.fakeIcon} onPress={()=> this.toggleSideMenu()}></TouchableOpacity>
-					<Text style={styles.headerText}>Menu</Text>
-					<View style={{flex: 1}}></View>
-				</View>
-                
-                <View style ={styles.logoContainer}>
-                    <Image 
-                        style={styles.logo}
-                        source={require('./images/NDA_LOGO_V.png')}
-                        />
-                </View>
-                
-			</SafeAreaView>
-		);
-	}
-	
-	toggleSideMenu = () => {
-		this.setState({ isSideMenuVisible: !this.state.isSideMenuVisible })
-	}
-}
