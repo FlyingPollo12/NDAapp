@@ -4,9 +4,6 @@ import {
 	Text,
 } from 'react-native';
 
-
-
-
 export default class newPage extends Component {
 	constructor(props: Props) {
 		super(props);
