@@ -6,23 +6,53 @@ import {
 	TextInput,
 	StyleSheet,
 	TouchableOpacity,
+	Dimensions,
 } from 'react-native';
+import { WebView } from 'react-native-webview';
+import Modal from 'react-native-modal';
 import { requestOneTimePayment } from 'react-native-paypal';
 
 
+let HEIGHT = Dimensions.get("window").height;
+let WIDTH = Dimensions.get("window").width;
 
 export default class newPage extends Component {
 	constructor(props: Props) {
 		super(props);
 		this.state={
 			amount: "0.00",
+			showModal: false,
+			status: "Pending",
 		}
 	}
 	
+	handleResponse = data => {
+		if (data.title == "success") {
+			this.setState({ showModal: false, status: "Complete" });
+		} else if (data.title == "cancel") {
+			this.setState({ showModal: false, status: "Cancelled" });
+		} else {
+			return;
+		}
+	};
 	
 	render() {
 		return (
 			<SafeAreaView>
+				<Modal style={styles.webview}
+					isVisible= {this.state.showModal}
+					onRequestClose={() => this.setState({ showModal: false })}
+					onBackdropPress={() => this.toggleModal()}
+				>
+					<WebView
+						style={styles.webview}
+						ref={webView => (this.webView = webView)}
+						source={{ uri: "http://localhost:3000" }}
+						onNavigationStateChange={(data) => this.handleResponse(data)}
+						injectedJavaScript={`document.f1.submit()`}
+						onLoadEnd={() => this.webView.postMessage(this.state.amount)}
+					/>
+				</Modal>
 				<Text style={styles.title}>Welcome, give us money now plz :)</Text>
 				<View style={{flexDirection: 'row'}}>
 					<View style={{flex: 1}}></View>
@@ -38,29 +68,17 @@ export default class newPage extends Component {
 				<TouchableOpacity style={styles.button} onPress={() => this.processPayment()}>
 					<Text style={styles.buttonText}>Donate</Text>
 				</TouchableOpacity>	
+				<Text>Payment Status: {this.state.status}</Text>
 			</SafeAreaView>
 		);
 	}
 	
-	async processPayment() {
-		const {
-			nonce,
-			payerId,
-			email,
-			firstName,
-			lastName,
-			phone,
-		} = await requestOneTimePayment(
-			token,
-			{
-				amount: this.state.amount,
-				currency: 'USD',
-				localeCode: 'en_US',
-				shippingAddressRequired: false,
-				userAction: 'commit',
-				intent: 'authorize',
-			}
-		);
+	processPayment() {
+		this.setState({ showModal: true });
+	}
+	
+	toggleModal() {
+		this.setState({ showModal: false });
 	}
 }
 
@@ -68,6 +86,12 @@ export default class newPage extends Component {
 const styles = StyleSheet.create({
 	page: {
 	
+	},
+	webview: {
+		marginTop: 20,
+		marginLeft: 50,
+		width: WIDTH * 0.8,
+		height: HEIGHT * 0.6,
 	},
 	title: {
 		fontSize: 42,
