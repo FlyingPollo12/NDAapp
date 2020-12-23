@@ -1,3 +1,4 @@
 https://www.npmjs.com/package/react-native-rss-parser/v/1.5.1 		- react-native-rss-parser 	- MIT license
 https://www.npmjs.com/package/react-native-vector-icons#animation	- react-native-vector-icons	- MIT license
 https://reactnative.dev/						-				- MIT license
+https://github.com/lodash/lodash/blob/master/LICENSE			- lodash			- MIT license

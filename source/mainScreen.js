@@ -14,6 +14,8 @@ import {COLORS} from './colors.js';     //Color Sheet
 import SideMenu from './sideMenu.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Card from './shared/Card.js';
+import * as rssParser from 'react-native-rss-parser';
+import _ from "lodash";
 
 const WIDTH = Dimensions.get("window").width;
 const HEIGHT = Dimensions.get("window").height;
@@ -22,11 +24,38 @@ export default class mainScreen extends Component {
 	constructor(props: Props) {
 		super(props);
 		this.state = {
-			isSideMenuVisible: false
+			isSideMenuVisible: false,
+            NDA_news: [],
+            loading: true,
 		}
 	}
+    
+    componentDidMount(){
+        this.fetchData();
+    }
 	
+    fetchData() {
+    console.log('...inFetch');
+
+    fetch('https://www.notredameacademy.com/rss.cfm?news=0')
+      .then(response => response.text())
+      .then(responseData => rssParser.parse(responseData))
+      .then(rss => {
+      this.setState({ NDA_news: _.cloneDeep(rss.items), loading: false }, () => {
+          if (console.log(this.state.NDA_news === rss.items)) {
+            console.log('for this is a shallow copy');
+          } else {
+            console.log('for this is a deep copy');
+          }
+          console.log(this.state.NDA_news[0].title);
+        });
+      });
+  }
+    
 	render() {
+        console.log("inRender");
+        if (this.state.loading) return <Text>Loading.....</Text>
+        
 		return 	(
             <ScrollView>
                 <SafeAreaView>
@@ -64,6 +93,10 @@ export default class mainScreen extends Component {
                         <View style={styles.hLine}/>
                         <Text style ={styles.newsText}>The Triton Times</Text>
                         <View style={styles.hLine}/>
+                        <Card>
+                            <Text>{this.state.NDA_news[0].title}</Text>
+                            <Text>{this.state.NDA_news[0].description}</Text>
+                        </Card>
                     </View>
                 </SafeAreaView>
             </ScrollView>
