@@ -7,10 +7,13 @@ import { Text,
 	TouchableOpacity,
 	StyleSheet,
 	Dimensions,
+    ImageBackground,
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {COLORS} from './colors.js';     //Color Sheet
 import SideMenu from './sideMenu.js';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Card from './shared/Card.js';
 
 const WIDTH = Dimensions.get("window").width;
 const HEIGHT = Dimensions.get("window").height;
@@ -19,7 +22,7 @@ export default class mainScreen extends Component {
 	constructor(props: Props) {
 		super(props);
 		this.state = {
-			isSideMenuVisible: false,
+			isSideMenuVisible: false
 		}
 	}
 	
@@ -35,31 +38,33 @@ export default class mainScreen extends Component {
                                 animationIn="slideInLeft" 
                                 animationOut="slideOutLeft" 
                                 swipeDirection="left"
-                                style={styles.sideMenuStyle} 
-                    >
+                                style={styles.sideMenuStyle}>
                         <SideMenu parentFunction={this.parentFunction}/>
                     </Modal>
                     {/*End Side Menu*/}
-                    
                     {/*Hamburger Button*/}
                     <View style={styles.header}>
-                        <TouchableOpacity style={styles.fakeIcon} onPress={()=> this.toggleSideMenu()}></TouchableOpacity>
-                        <Text style={styles.headerText}>Menu</Text>
-                        <View style={{flex: 1}}></View>
+                        <Icon.Button 
+                            name="bars"
+                            size={60} 
+                            color={COLORS.WHITE}
+                            backgroundColor={COLORS.NDA_BLUE}
+                            onPress={()=> this.toggleSideMenu()} />
                     </View>
                     {/*End Hamburger Button*/}
-                    
                     {/*Logo & Text*/}
-                    <View style ={styles.logoContainer}>
-                        <Image
-                            style={styles.logo}
-                            source={require('./images/NDA_LOGO_V.png')}
-                        />
-                        <Text style = {styles.text}
-                            >Give us your money, we will use it for the children. All of the children.</Text>
+                    <Image
+                        style={styles.logo}
+                        source={require('./images/NDA_LOGO_V.png')}/>
+                    <Text style = {styles.text}>
+                        Give us your money, we will use it for the children. All of the children.</Text>
+                    {/*End Logo*/}
+                    {/*News Feed*/}
+                    <View>
+                        <View style={styles.hLine}/>
+                        <Text style ={styles.newsText}>The Triton Times</Text>
+                        <View style={styles.hLine}/>
                     </View>
-                   {/*End Logo*/}
-                    
                 </SafeAreaView>
             </ScrollView>
 		);
@@ -92,21 +97,10 @@ export default class mainScreen extends Component {
 
 const styles = StyleSheet.create({
 	header: {
-		backgroundColor: COLORS.GRAY,
-		backgroundColor: '#333333',
-		padding: 50,
+		backgroundColor: COLORS.NDA_BLUE,
+        height: HEIGHT * .20,
 		flexDirection: 'row',
-	},
-	headerText: {
-		color: COLORS.WHITE,
-		color: '#ffffff',
-		fontSize: 42,
-		textAlign: 'center',
-		flex: 4,
-	},
-	fakeIcon: {
-		flex: 1,
-		backgroundColor: 'blue',
+        alignItems: 'flex-end'
 	},
 	sideMenuStyle: {
 		position: 'absolute',
@@ -114,18 +108,14 @@ const styles = StyleSheet.create({
 		margin: 0,
 		width: WIDTH * 0.45,
 		height: HEIGHT,
+        backgroundColor: COLORS.NDA_GREEN,
 	},
     logo: {
-        width: WIDTH * 1,
-        height: HEIGHT * .55,
-        paddingTop: 50,
+        width: WIDTH * .95,
         resizeMode: 'contain',
-        height: HEIGHT * .515,
-        paddingTop: 50,
-    },
-    logoContainer: {
         justifyContent: 'center',
-        alignItems: 'center',
+        alignSelf: 'center',
+        height: HEIGHT * .515,
     },
     text: {
         color: COLORS.NDA_BLUE,
@@ -133,5 +123,19 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingLeft: 50,
         paddingRight: 50,
+    },
+    newsText: {
+        color: COLORS.WHITE,
+        backgroundColor: COLORS.NDA_BLUE,
+        fontSize: 50,
+        textAlign: 'center',
+        paddingLeft: 50,
+        paddingRight: 50,
+    },
+    hLine: {
+        borderBottomColor: COLORS.NDA_GREEN,
+        borderBottomWidth: 5,
+        width: WIDTH,
+        alignSelf: 'center',
     },
 });
