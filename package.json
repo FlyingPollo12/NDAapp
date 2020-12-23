@@ -19,14 +19,10 @@
     "react-native-modal": "^11.5.6",
     "react-native-paypal": "^3.1.1",
     "react-native-safe-area-context": "^3.1.9",
-<<<<<<< HEAD
-    "react-native-screens": "^2.16.1",
-    "react-native-vector-icons": "^7.1.0"
-=======
+    "react-native-vector-icons": "^7.1.0",
     "react-native-screens": "^2.15.0",
     "react-native-vector-icons": "^7.1.0",
     "react-native-webview": "^11.0.2"
->>>>>>> cef992a6b44c65d1023de8bff5dd65354b34cc8b
   },
   "devDependencies": {
     "@babel/core": "7.12.9",
