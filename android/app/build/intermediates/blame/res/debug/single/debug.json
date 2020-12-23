@@ -384,6 +384,10 @@
         "source": "C:\\Users\\terra\\.gradle\\caches\\transforms-2\\files-2.1\\6ddd477907c7d7a40770d1588c9e8215\\material-1.1.0\\res\\anim\\mtrl_card_lowers_interpolator.xml"
     },
     {
+        "merged": "C:\\Users\\terra\\Desktop\\NDAapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_file_provider_paths.xml.flat",
+        "source": "C:\\Users\\terra\\Desktop\\NDAapp\\node_modules\\react-native-webview\\android\\build\\intermediates\\packaged_res\\debug\\xml\\file_provider_paths.xml"
+    },
+    {
         "merged": "C:\\Users\\terra\\Desktop\\NDAapp\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_search_view.xml.flat",
         "source": "C:\\Users\\terra\\.gradle\\caches\\transforms-2\\files-2.1\\4a0e5611ad2164c8eea3e2d5eaca3b5e\\appcompat-1.1.0\\res\\layout\\abc_search_view.xml"
     },

@@ -111,19 +111,37 @@
 60            </intent-filter>
 61        </activity>
 62
-63        <service android:name="com.braintreepayments.api.internal.AnalyticsIntentService" />
-63-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:17:9-93
-63-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:17:18-90
-64
-65        <activity android:name="com.braintreepayments.api.ThreeDSecureActivity" />
-65-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:19:9-83
-65-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:19:19-80
-66        <activity
-66-->[com.braintreepayments.api:google-payment:3.3.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\5146e4f1001ae25f0cbd05f4f4b1246f\jetified-google-payment-3.3.1\AndroidManifest.xml:12:9-14:62
-67            android:name="com.braintreepayments.api.GooglePaymentActivity"
-67-->[com.braintreepayments.api:google-payment:3.3.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\5146e4f1001ae25f0cbd05f4f4b1246f\jetified-google-payment-3.3.1\AndroidManifest.xml:13:13-75
-68            android:theme="@style/bt_transparent_activity" />
-68-->[com.braintreepayments.api:google-payment:3.3.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\5146e4f1001ae25f0cbd05f4f4b1246f\jetified-google-payment-3.3.1\AndroidManifest.xml:14:13-59
-69    </application>
-70
-71</manifest>
+63        <provider
+63-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-20:20
+64            android:name="com.reactnativecommunity.webview.RNCWebViewFileProvider"
+64-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-83
+65            android:authorities="com.nda.fileprovider"
+65-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-64
+66            android:exported="false"
+66-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
+67            android:grantUriPermissions="true" >
+67-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-47
+68            <meta-data
+68-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-19:63
+69                android:name="android.support.FILE_PROVIDER_PATHS"
+69-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-67
+70                android:resource="@xml/file_provider_paths" />
+70-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-60
+71        </provider>
+72
+73        <service android:name="com.braintreepayments.api.internal.AnalyticsIntentService" />
+73-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:17:9-93
+73-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:17:18-90
+74
+75        <activity android:name="com.braintreepayments.api.ThreeDSecureActivity" />
+75-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:19:9-83
+75-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:19:19-80
+76        <activity
+76-->[com.braintreepayments.api:google-payment:3.3.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\5146e4f1001ae25f0cbd05f4f4b1246f\jetified-google-payment-3.3.1\AndroidManifest.xml:12:9-14:62
+77            android:name="com.braintreepayments.api.GooglePaymentActivity"
+77-->[com.braintreepayments.api:google-payment:3.3.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\5146e4f1001ae25f0cbd05f4f4b1246f\jetified-google-payment-3.3.1\AndroidManifest.xml:13:13-75
+78            android:theme="@style/bt_transparent_activity" />
+78-->[com.braintreepayments.api:google-payment:3.3.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\5146e4f1001ae25f0cbd05f4f4b1246f\jetified-google-payment-3.3.1\AndroidManifest.xml:14:13-59
+79    </application>
+80
+81</manifest>
