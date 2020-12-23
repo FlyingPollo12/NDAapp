@@ -14,6 +14,7 @@ MERGED from [:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\re
 MERGED from [:react-native-safe-area-context] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-vector-icons] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-23:12
 MERGED from [com.facebook.react:react-native:0.63.4] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\eaec7e6976d929ca9b4cb906b265b3fb\jetified-react-native-0.63.4\AndroidManifest.xml:2:1-13:12
 MERGED from [com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:2:1-22:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\4df365b7dc54445a326e874a81dc5ce1\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -107,6 +108,8 @@ MERGED from C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.x
 MERGED from C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:6:5-25:19
 MERGED from [:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-27:19
 MERGED from [:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-27:19
+MERGED from [:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-21:19
+MERGED from [:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-21:19
 MERGED from [com.facebook.react:react-native:0.63.4] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\eaec7e6976d929ca9b4cb906b265b3fb\jetified-react-native-0.63.4\AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.react:react-native:0.63.4] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\eaec7e6976d929ca9b4cb906b265b3fb\jetified-react-native-0.63.4\AndroidManifest.xml:11:5-20
 MERGED from [com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:16:5-20:19
@@ -195,6 +198,8 @@ MERGED from [:react-native-screens] C:\Users\terra\Desktop\NDAapp\node_modules\r
 MERGED from [:react-native-screens] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.63.4] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\eaec7e6976d929ca9b4cb906b265b3fb\jetified-react-native-0.63.4\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.63.4] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\eaec7e6976d929ca9b4cb906b265b3fb\jetified-react-native-0.63.4\AndroidManifest.xml:7:5-9:41
 MERGED from [com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:8:5-11:74
@@ -347,6 +352,22 @@ data
 ADDED from [:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:17-69
 	android:scheme
 		ADDED from [:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:23-66
+provider#com.reactnativecommunity.webview.RNCWebViewFileProvider
+ADDED from [:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-20:20
+	android:grantUriPermissions
+		ADDED from [:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-47
+	android:authorities
+		ADDED from [:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-64
+	android:exported
+		ADDED from [:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-83
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-19:63
+	android:resource
+		ADDED from [:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-60
+	android:name
+		ADDED from [:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-67
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:13:5-79
 	android:name

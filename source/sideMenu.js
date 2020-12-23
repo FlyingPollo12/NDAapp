@@ -4,7 +4,13 @@ import { Text,
 	TouchableOpacity,
 	StyleSheet,
 	Alert,
+    Image,
+    Dimensions,
 } from 'react-native';
+import {COLORS} from './colors.js';     //Color Sheet
+
+const WIDTH = Dimensions.get("window").width;
+const HEIGHT = Dimensions.get("window").height;
 
 export default class sideMenu extends Component {
 	constructor (props: Props) {
@@ -18,7 +24,21 @@ export default class sideMenu extends Component {
 	render() {
 		return(
 			<View style={styles.page}>
-				<View style={{height: 50}}></View>
+
+                <Image
+                    style={styles.emblem}
+                    source={require('./images/NDA_LOGO_V_EMBLEM.png')}/>
+                
+                <View
+                  style={{
+                    borderBottomColor: COLORS.WHITE,
+                    borderBottomWidth: 1,
+                    width: '80%',
+                    alignSelf: 'center',
+                  }}
+                />
+                
+				<View style={{height: 30}}></View>
 				<TouchableOpacity style={styles.button} onPress={() => this.parentFunction("donationScreen")}>
 					<Text style={styles.buttonText}>Donations</Text>
 				</TouchableOpacity>
@@ -43,23 +63,33 @@ export default class sideMenu extends Component {
 const styles = StyleSheet.create({
 	page: {
 		flex: 1,
-		backgroundColor: '#666666',
+		backgroundColor: COLORS.NDA_GREEN,
 	},
 	button: {
 		margin: 10,
 		marginTop: 15,
 		marginBottom: 15,
 		padding: 10,
-		borderWidth: 2,
+        borderWidth: 2,
 		borderColor: '#ffffff',
 		borderRadius: 4,
 	},
 	buttonText: {
 		textAlign: 'center',
+        color: COLORS.WHITE,
 		fontSize: 20,
 	},
 	text: {
 		fontSize: 36,
-		color: 'red',
-	},
+		color: COLORS.WHITE,
+    },
+    emblem: {
+        justifyContent: 'center',
+        alignSelf: 'center',
+        resizeMode: 'contain',
+        margin: 10,
+        width: WIDTH * .25,
+        height: WIDTH * .25,
+    },
+	
 })
