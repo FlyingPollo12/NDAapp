@@ -1,0 +1,6 @@
+module Pods_NDA_NDATests {
+  umbrella header "Pods-NDA-NDATests-umbrella.h"
+
+  export *
+  module * { export * }
+}
