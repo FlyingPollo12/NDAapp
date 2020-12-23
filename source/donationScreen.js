@@ -27,7 +27,9 @@ export default class newPage extends Component {
 	}
 	
 	handleResponse = data => {
-		if (data.title == "success") {
+		console.log("handleResponse()");
+		console.log(data.title);
+		if (data.title == "return") {
 			this.setState({ showModal: false, status: "Complete" });
 		} else if (data.title == "cancel") {
 			this.setState({ showModal: false, status: "Cancelled" });
@@ -47,24 +49,13 @@ export default class newPage extends Component {
 					<WebView
 						style={styles.webview}
 						ref={webView => (this.webView = webView)}
-						source={{ uri: "http://localhost:3000" }}
+						source={{ uri: "https://slashsolutions.co/NDApaypal/" }}
 						onNavigationStateChange={(data) => this.handleResponse(data)}
-						injectedJavaScript={`document.f1.submit()`}
+						injectedJavaScript={`document.paypal_form.submit()`}
 						onLoadEnd={() => this.webView.postMessage(this.state.amount)}
 					/>
 				</Modal>
 				<Text style={styles.title}>Welcome, give us money now plz :)</Text>
-				<View style={{flexDirection: 'row'}}>
-					<View style={{flex: 1}}></View>
-					<Text style={styles.input}>Amount: </Text>
-					<TextInput
-						style={styles.input}
-						keyboardType={"numeric"}
-						value={this.state.amount}
-						onChangeText={(text) => this.setState({ amount: text }) }
-					/>
-					<View style={{flex: 1}}></View>
-				</View>
 				<TouchableOpacity style={styles.button} onPress={() => this.processPayment()}>
 					<Text style={styles.buttonText}>Donate</Text>
 				</TouchableOpacity>	
@@ -87,11 +78,13 @@ const styles = StyleSheet.create({
 	page: {
 	
 	},
-	webview: {
-		marginTop: 20,
-		marginLeft: 50,
-		width: WIDTH * 0.8,
-		height: HEIGHT * 0.6,
+	webview: {	
+		position: 'absolute',
+		bottom: 0,
+		padding: 0,
+		marginLeft: 0,
+		width: WIDTH,
+		height: HEIGHT * 0.76,
 	},
 	title: {
 		fontSize: 42,
