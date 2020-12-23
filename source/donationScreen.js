@@ -6,61 +6,70 @@ import {
 	TextInput,
 	StyleSheet,
 	TouchableOpacity,
+	Dimensions,
 } from 'react-native';
+import { WebView } from 'react-native-webview';
+import Modal from 'react-native-modal';
 import { requestOneTimePayment } from 'react-native-paypal';
 
 
+let HEIGHT = Dimensions.get("window").height;
+let WIDTH = Dimensions.get("window").width;
 
 export default class newPage extends Component {
 	constructor(props: Props) {
 		super(props);
 		this.state={
 			amount: "0.00",
+			showModal: false,
+			status: "Pending",
 		}
 	}
 	
+	handleResponse = data => {
+		console.log("handleResponse()");
+		console.log(data.title);
+		if (data.title == "return") {
+			this.setState({ showModal: false, status: "Complete" });
+		} else if (data.title == "cancel") {
+			this.setState({ showModal: false, status: "Cancelled" });
+		} else {
+			return;
+		}
+	};
 	
 	render() {
 		return (
 			<SafeAreaView>
-				<Text style={styles.title}>Welcome, give us money now plz :)</Text>
-				<View style={{flexDirection: 'row'}}>
-					<View style={{flex: 1}}></View>
-					<Text style={styles.input}>Amount: </Text>
-					<TextInput
-						style={styles.input}
-						keyboardType={"numeric"}
-						value={this.state.amount}
-						onChangeText={(text) => this.setState({ amount: text }) }
+				<Modal style={styles.webview}
+					isVisible= {this.state.showModal}
+					onRequestClose={() => this.setState({ showModal: false })}
+					onBackdropPress={() => this.toggleModal()}
+				>
+					<WebView
+						style={styles.webview}
+						ref={webView => (this.webView = webView)}
+						source={{ uri: "https://slashsolutions.co/NDApaypal/" }}
+						onNavigationStateChange={(data) => this.handleResponse(data)}
+						injectedJavaScript={`document.paypal_form.submit()`}
+						onLoadEnd={() => this.webView.postMessage(this.state.amount)}
 					/>
-					<View style={{flex: 1}}></View>
-				</View>
+				</Modal>
+				<Text style={styles.title}>Welcome, give us money now plz :)</Text>
 				<TouchableOpacity style={styles.button} onPress={() => this.processPayment()}>
 					<Text style={styles.buttonText}>Donate</Text>
 				</TouchableOpacity>	
+				<Text>Payment Status: {this.state.status}</Text>
 			</SafeAreaView>
 		);
 	}
 	
-	async processPayment() {
-		const {
-			nonce,
-			payerId,
-			email,
-			firstName,
-			lastName,
-			phone,
-		} = await requestOneTimePayment(
-			token,
-			{
-				amount: this.state.amount,
-				currency: 'USD',
-				localeCode: 'en_US',
-				shippingAddressRequired: false,
-				userAction: 'commit',
-				intent: 'authorize',
-			}
-		);
+	processPayment() {
+		this.setState({ showModal: true });
+	}
+	
+	toggleModal() {
+		this.setState({ showModal: false });
 	}
 }
 
@@ -68,6 +77,14 @@ export default class newPage extends Component {
 const styles = StyleSheet.create({
 	page: {
 	
+	},
+	webview: {	
+		position: 'absolute',
+		bottom: 0,
+		padding: 0,
+		marginLeft: 0,
+		width: WIDTH,
+		height: HEIGHT * 0.76,
 	},
 	title: {
 		fontSize: 42,
