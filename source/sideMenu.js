@@ -12,6 +12,9 @@ import {COLORS} from './colors.js';     //Color Sheet
 const WIDTH = Dimensions.get("window").width;
 const HEIGHT = Dimensions.get("window").height;
 
+
+//FOR MODAL USE
+//needs parent function that can receive string msg for each option
 export default class sideMenu extends Component {
 	constructor (props: Props) {
 		super(props);
@@ -51,6 +54,10 @@ export default class sideMenu extends Component {
                 		<TouchableOpacity style={styles.button} onPress={() => this.parentFunction("alumniScreen")}>
 					<Text style={styles.buttonText}>Alumni</Text>
 				</TouchableOpacity>
+				{/*------------ keep bottom ------------*/}
+				<TouchableOpacity style={styles.button} onPress={() => this.parentFunction("goback")}>
+					<Text style={styles.buttonText}>Back</Text>
+				</TouchableOpacity>
 			</View>
 		);
 	}
@@ -88,6 +95,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         resizeMode: 'contain',
         margin: 10,
+        marginTop: 48,
         width: WIDTH * .25,
         height: WIDTH * .25,
     },

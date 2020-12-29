@@ -19,6 +19,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import * as rssParser from 'react-native-rss-parser';
 import _ from "lodash";
 
+
+
+Icon.loadFont();
+
 const WIDTH = Dimensions.get("window").width;
 const HEIGHT = Dimensions.get("window").height;
 
@@ -59,7 +63,7 @@ export default class mainScreen extends Component {
         if (this.state.loading) return <Text>Loading.....</Text>
         
 		return 	(
-            <ScrollView>
+            <ScrollView bounces={false}>
                 <SafeAreaView>
                     {/*SideMenu*/}
                     <Modal
@@ -186,7 +190,10 @@ export default class mainScreen extends Component {
 			this.toggleSideMenu();
 			this.props.navigation.navigate("alumniScreen");
 		}
-	
+		else if (msg == "goback") {
+			//do nothing but close side menu
+			this.toggleSideMenu();
+		}
 	}
 	
 	toggleSideMenu = () => {
@@ -197,9 +204,9 @@ export default class mainScreen extends Component {
 const styles = StyleSheet.create({
 	header: {
 		backgroundColor: COLORS.NDA_BLUE,
-        height: HEIGHT * .20,
+        	height: HEIGHT * .20,
 		flexDirection: 'row',
-        alignItems: 'flex-end'
+       	alignItems: 'flex-end'
 	},
 	sideMenuStyle: {
 		position: 'absolute',
