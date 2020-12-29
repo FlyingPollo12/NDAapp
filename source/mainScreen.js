@@ -15,6 +15,10 @@ import SideMenu from './sideMenu.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Card from './shared/Card.js';
 
+
+
+Icon.loadFont();
+
 const WIDTH = Dimensions.get("window").width;
 const HEIGHT = Dimensions.get("window").height;
 
