@@ -8,12 +8,14 @@ import { Text,
 	StyleSheet,
 	Dimensions,
     ImageBackground,
+    Flatlist,
+    Linking,
 } from 'react-native';
 import Modal from 'react-native-modal';
 import {COLORS} from './colors.js';     //Color Sheet
 import SideMenu from './sideMenu.js';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import Card from './shared/Card.js';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import * as rssParser from 'react-native-rss-parser';
 import _ from "lodash";
 
@@ -42,18 +44,18 @@ export default class mainScreen extends Component {
       .then(responseData => rssParser.parse(responseData))
       .then(rss => {
       this.setState({ NDA_news: _.cloneDeep(rss.items), loading: false }, () => {
-          if (console.log(this.state.NDA_news === rss.items)) {
-            console.log('for this is a shallow copy');
+          if (this.state.NDA_news === rss.items) {
+            console.log('News: is a shallow copy');
           } else {
-            console.log('for this is a deep copy');
+            console.log('News: is a deep copy');
           }
-          console.log(this.state.NDA_news[0].title);
-        });
+          console.log(rss.items[0].links[0].url);
+          });
       });
   }
     
 	render() {
-        console.log("inRender");
+        console.log("...inRender");
         if (this.state.loading) return <Text>Loading.....</Text>
         
 		return 	(
@@ -90,18 +92,82 @@ export default class mainScreen extends Component {
                     {/*End Logo*/}
                     {/*News Feed*/}
                     <View>
-                        <View style={styles.hLine}/>
-                        <Text style ={styles.newsText}>The Triton Times</Text>
-                        <View style={styles.hLine}/>
-                        <Card>
-                            <Text>{this.state.NDA_news[0].title}</Text>
-                            <Text>{this.state.NDA_news[0].description}</Text>
-                        </Card>
+                        <View style={styles.h_divider}/>
+                        <Text style={styles.TTT_Text}>The Triton Times</Text>
+                        <View style={styles.h_divider}/>
+                        
+                            <Card>
+                                <Text style={styles.newsHeadline} >{this.state.NDA_news[0].title}</Text>
+                                <Image
+                                    style={styles.newsImage}
+                                    source={{
+                                        uri: this.state.NDA_news[0].enclosures[0].url,
+                                        }}
+                                    />
+                                <Text style={styles.newsBody}>{this.state.NDA_news[0].description.trim()}</Text>
+                                <Text style={{marginLeft: 15, fontSize: 16,}}>Read more:</Text>
+                                <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[0].links[0].url)}>Source</Text>
+                            </Card>
+                        
+                            <Card>
+                                <Text style={styles.newsHeadline} >{this.state.NDA_news[1].title}</Text>
+                                <Image
+                                    style={styles.newsImage}
+                                    source={{
+                                        uri: this.state.NDA_news[1].enclosures[0].url,
+                                        }}
+                                    />
+                                <Text style={styles.newsBody}>{this.state.NDA_news[1].description.trim()}</Text>
+                                <Text style={{marginLeft: 15, fontSize: 16,}}>Read more:</Text>
+                                <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[1].links[0].url)}>Source</Text>
+                            </Card>
+                        
+                            <Card>
+                                <Text style={styles.newsHeadline} >{this.state.NDA_news[2].title}</Text>
+                                <Image
+                                    style={styles.newsImage}
+                                    source={{
+                                        uri: this.state.NDA_news[2].enclosures[0].url,
+                                        }}
+                                    />
+                                <Text style={styles.newsBody}>{this.state.NDA_news[2].description.trim()}</Text>
+                                <Text style={{marginLeft: 15, fontSize: 16,}}>Read more:</Text>
+                                <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[2].links[0].url)}>Source</Text>
+                            </Card>
+                        
+                            <Card>
+                                <Text style={styles.newsHeadline} >{this.state.NDA_news[3].title}</Text>
+                                <Image
+                                    style={styles.newsImage}
+                                    source={{
+                                        uri: this.state.NDA_news[3].enclosures[0].url,
+                                        }}
+                                    />
+                                <Text style={styles.newsBody}>{this.state.NDA_news[3].description.trim()}</Text>
+                                <Text style={{marginLeft: 15, fontSize: 16,}}>Read more:</Text>
+                                <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[3].links[0].url)}>Source</Text>
+                            </Card>
+                        
+                            <Card>
+                                <Text style={styles.newsHeadline} >{this.state.NDA_news[4].title}</Text>
+                                <Image
+                                    style={styles.newsImage}
+                                    source={{
+                                        uri: this.state.NDA_news[4].enclosures[0].url,
+                                        }}
+                                    />
+                                <Text style={styles.newsBody}>{this.state.NDA_news[4].description.trim()}</Text>
+                                <Text style={{marginLeft: 15, fontSize: 16,}}>Read more:</Text>
+                                <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[4].links[0].url)}>Source</Text>
+                            </Card>
+                        
                     </View>
                 </SafeAreaView>
             </ScrollView>
 		);
 	}
+    
+
 	
 	parentFunction = (msg) => {
 		if (msg == "donationScreen") {
@@ -157,7 +223,13 @@ const styles = StyleSheet.create({
         paddingLeft: 50,
         paddingRight: 50,
     },
-    newsText: {
+     h_divider: {
+        borderBottomColor: COLORS.NDA_GREEN,
+        borderBottomWidth: 5,
+        width: WIDTH,
+        alignSelf: 'center',
+    },
+    TTT_Text: {
         color: COLORS.WHITE,
         backgroundColor: COLORS.NDA_BLUE,
         fontSize: 50,
@@ -165,10 +237,29 @@ const styles = StyleSheet.create({
         paddingLeft: 50,
         paddingRight: 50,
     },
-    hLine: {
-        borderBottomColor: COLORS.NDA_GREEN,
-        borderBottomWidth: 5,
-        width: WIDTH,
-        alignSelf: 'center',
+    newsHeadline:{
+        fontSize: 24,
+        textAlign:'left',
+        paddingBottom: 15,
     },
+    newsImage:{
+        height: 256,
+        width: 256,
+        marginLeft: 15,
+        marginBottom: 15,
+    },
+    newsBody:{
+        includeFontPadding: false,
+        textAlignVertical: 'center',
+        fontSize: 16,
+        textAlign: 'justify',
+        marginLeft: 15,
+        marginBottom: 15,
+    },
+    newsLink:{
+        textDecorationLine: 'underline',
+        color: COLORS.NDA_BLUE,
+        marginLeft: 15,
+    },
+   
 });

@@ -18,13 +18,13 @@ export default function Card(props) {
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 6,
+    borderRadius: 12,
     elevation: 3,
     backgroundColor: COLORS.WHITE,
     shadowOffset: { width: 1, height: 1 },
     shadowColor: COLORS.GRAY,
     shadowOpacity: 0.3,
-    shadowRadius: 2,
+    shadowRadius: 10,
     marginHorizontal: 12,
     marginVertical: 18,
   },
