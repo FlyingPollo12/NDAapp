@@ -9,14 +9,15 @@ import {
 	Dimensions,
 	Image,
 	ImageBackground,
+	Alert,
 } from 'react-native';
 import { WebView } from 'react-native-webview';
 import Modal from 'react-native-modal';
 import { requestOneTimePayment } from 'react-native-paypal';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import SideMenu from './sideMenu.js';
 import { COLORS } from './colors.js';
+import Header from './header.js';
 
 
 
@@ -29,7 +30,6 @@ export default class newPage extends Component {
 		this.state={
 			amount: "0.00",
 			showModal: false, //for webview
-			isSideMenuVisible: false, //side menu
 			status: "Pending",
 		}
 	}
@@ -63,35 +63,7 @@ export default class newPage extends Component {
 						onLoadEnd={() => this.webView.postMessage(this.state.amount)}
 					/>
 				</Modal>
-				<Modal
-                        		isVisible={this.state.isSideMenuVisible}
-                                onBackdropPress={this.toggleSideMenu}
-                                onSwipeComplete={this.toggleSideMenu}
-                                animationIn="slideInLeft" 
-                                animationOut="slideOutLeft" 
-                                swipeDirection="left"
-                                style={styles.sideMenuStyle}
-                        >
-                        		<SideMenu parentFunction={this.parentFunction}/>
-                    	</Modal>
-                    	<View style={styles.header}>
-                    		<Text style={styles.headerText}>Donate</Text>
-                    		<View style={styles.iconContainer}>
-                        		<Icon.Button iconStyle={styles.menuIcon}
-                          		name="bars"
-                          		size={60}
-                            		color={COLORS.WHITE}
-                            		backgroundColor={COLORS.NDA_BLUE}
-                            		onPress={() => this.toggleSideMenu()}
-                            	/>
-                            	</View>
-                            	<View style={styles.logoContainer}>
-                    			<Image
-                        				style={styles.logo}
-                        				source={require('./images/logo_cut.png')}
-                        			/>
-                    		</View>
-                    	</View>
+				<Header callBack={this.headerCallBack}/>
 				<TouchableOpacity style={styles.button} onPress={() => this.processPayment()}>
 					<Text style={styles.buttonText}>Donate</Text>
 				</TouchableOpacity>	
@@ -100,35 +72,26 @@ export default class newPage extends Component {
 		);
 	}
 	
-	parentFunction = (msg) => {
+	headerCallBack = (msg) => {
 		if (msg == "donationScreen") {
-			this.toggleSideMenu();
 			this.props.navigation.navigate("donationScreen");
 		}
 		else if (msg == "parentScreen") {
-			this.toggleSideMenu();
 			this.props.navigation.navigate("parentScreen");
 		}
 		else if (msg == "studentScreen") {
-			this.toggleSideMenu();
 			this.props.navigation.navigate("studentScreen");
 		}
 		else if (msg == "alumniScreen") {
-			this.toggleSideMenu();
 			this.props.navigation.navigate("alumniScreen");
 		}
 		else if (msg == "goback") {
-			this.toggleSideMenu();
 			this.props.navigation.goBack();
 		}
 	}
 	
 	processPayment() {
 		this.setState({ showModal: true });
-	}
-	
-	toggleSideMenu = () => {
-		this.setState({ isSideMenuVisible: !this.state.isSideMenuVisible })
 	}
 	
 	toggleModal() {
