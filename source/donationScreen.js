@@ -48,7 +48,7 @@ export default class newPage extends Component {
 	
 	render() {
 		return (
-			<SafeAreaView>
+			<SafeAreaView style={styles.page}>
 				<Modal style={styles.webview}
 					isVisible= {this.state.showModal}
 					onRequestClose={() => this.setState({ showModal: false })}
@@ -64,11 +64,21 @@ export default class newPage extends Component {
 					/>
 				</Modal>
 				<Header callBack={this.headerCallBack}/>
-				<TouchableOpacity style={styles.button} onPress={() => this.processPayment()}>
-					<Text style={styles.buttonText}>Donate</Text>
-				</TouchableOpacity>	
-				<Text>Payment Status: {this.state.status}</Text>
-				</SafeAreaView>
+				<View style={styles.body}>
+					<Text style={styles.text}>All donations will go towards .... We appreciate everything you do for this community!</Text>
+					<Image
+						style={styles.bodyImage}
+						source={require('./images/pdfsplit/Booklet_7-7-1.png')}
+						resizeMode={'contain'}
+				 	/>
+				</View>
+				<View style={styles.footer}>
+					<TouchableOpacity style={styles.button} onPress={() => this.processPayment()}>
+						<Text style={styles.buttonText}>Donate</Text>
+					</TouchableOpacity>	
+					<Text style={styles.statusText}>Payment Status: {this.state.status}</Text>
+				</View>
+			</SafeAreaView>
 		);
 	}
 	
@@ -102,37 +112,18 @@ export default class newPage extends Component {
 
 const styles = StyleSheet.create({
 	page: {
-	
-	},
-	header: {
-		backgroundColor: COLORS.NDA_BLUE,
-        	height: HEIGHT * .20,
-		flexDirection: 'column',
-		marginBottom: HEIGHT * .12,
-	},
-	headerText: {
-		margin: 10,
-		fontSize: 60,
-		textAlign: 'center',
-		color: '#9a9a9a',
-		borderWidth: 2,
-		borderRadius: 4,
-		borderColor: '#a5a5a5',
-	},
-	iconContainer: {
-		zIndex: 2,
-		width: 100,
-	},
-	menuIcon: {
-		marginLeft: 10,
-       },
-	sideMenuStyle: {
-		position: 'absolute',
-		left: 0,
-		margin: 0,
-		width: WIDTH * 0.45,
 		height: HEIGHT,
-        	backgroundColor: COLORS.NDA_GREEN,
+		width: WIDTH,
+		flexDirection: 'column',
+	},
+	body: {
+		flex: 2,
+		justifyContent: 'flex-end',
+	},
+	footer: {
+		flex: 1,
+		height: 200,
+		backgroundColor: COLORS.NDA_BLUE,
 	},
 	webview: {	
 		position: 'absolute',
@@ -140,26 +131,23 @@ const styles = StyleSheet.create({
 		padding: 0,
 		marginLeft: 0,
 		width: WIDTH,
-		height: HEIGHT * 0.76,
+		height: HEIGHT * 0.86,
 	},
-	logoContainer: {
-		zIndex: 1,
+	bodyImage: {
+		marginTop: 20,
+		width: WIDTH,
+		height: WIDTH * 0.5 + 60,
 	},
-	logo: {
-		position: 'absolute',
-        	width: WIDTH * .45,
-        	left: WIDTH * .275,
-        	height: WIDTH * .45,
-        	top: -76,
-        	zIndex: 1,
-    	},
 	text: {
-		fontSize: 20,
+		fontSize: 18,
+		paddingRight: 20,
+		paddingLeft: 20,
 	},
 	button: {
-		backgroundColor: 'blue',
+		backgroundColor: COLORS.NDA_GREEN,
 		padding: 20,
-		margin: 20,
+		marginBottom: 10,
+		marginTop: 30,
 		marginLeft: 40,
 		marginRight: 40,
 	},
@@ -167,5 +155,9 @@ const styles = StyleSheet.create({
 		textAlign: 'center',
 		fontSize: 30,
 		color: 'yellow',
+	},
+	statusText: {
+		color: 'white',
+		textAlign: 'center',
 	},
 })

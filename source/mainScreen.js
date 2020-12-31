@@ -61,17 +61,16 @@ export default class mainScreen extends Component {
 	render() {
         console.log("...inRender");
         if (this.state.loading) return <Text>Loading.....</Text>
-        
 		return 	(
-            <ScrollView bounces={false}>
+            <ScrollView bounces={true}>
                 <SafeAreaView>
                     {/*SideMenu*/}
                     <Modal
                         isVisible={this.state.isSideMenuVisible}
                                 onBackdropPress={this.toggleSideMenu}
                                 onSwipeComplete={this.toggleSideMenu}
-                                animationIn="slideInLeft" 
-                                animationOut="slideOutLeft" 
+                                animationIn="slideInLeft"
+                                animationOut="slideOutLeft"
                                 swipeDirection="left"
                                 style={styles.sideMenuStyle}>
                         <SideMenu parentFunction={this.parentFunction}/>
@@ -79,21 +78,24 @@ export default class mainScreen extends Component {
                     {/*End Side Menu*/}
                     {/*Hamburger Button*/}
                     <View style={styles.header}>
-                        <Icon.Button 
-                            name="bars"
-                            size={60} 
-                            color={COLORS.WHITE}
-                            backgroundColor={COLORS.NDA_BLUE}
-                            onPress={()=> this.toggleSideMenu()} />
+                        <View style={styles.iconContainer}>
+                        <Icon.Button
+                        		style={styles.icon}
+                            	name="bars"
+                            	size={60} 
+                            	color={COLORS.WHITE}
+                            	backgroundColor={COLORS.NDA_BLUE}
+                            	onPress={()=> this.toggleSideMenu()} 
+                        />
+                        </View>
+                    	<Image
+                        		style={styles.logo}
+                        		source={require('./images/NDA_LOGO_V.png')}
+                        	/>
                     </View>
+                    <Text style = {styles.text}>Give us your money, we will use it for the children. All of the children.</Text>
                     {/*End Hamburger Button*/}
-                    {/*Logo & Text*/}
-                    <Image
-                        style={styles.logo}
-                        source={require('./images/NDA_LOGO_V.png')}/>
-                    <Text style = {styles.text}>
-                        Give us your money, we will use it for the children. All of the children.</Text>
-                    {/*End Logo*/}
+                    
                     {/*News Feed*/}
                     <View>
                         <View style={styles.h_divider}/>
@@ -206,7 +208,9 @@ const styles = StyleSheet.create({
 		backgroundColor: COLORS.NDA_BLUE,
         	height: HEIGHT * .20,
 		flexDirection: 'row',
-       	alignItems: 'flex-end'
+       	alignItems: 'flex-end',
+       	zIndex: 10,
+       	marginBottom: HEIGHT * 0.32,
 	},
 	sideMenuStyle: {
 		position: 'absolute',
@@ -214,21 +218,35 @@ const styles = StyleSheet.create({
 		margin: 0,
 		width: WIDTH * 0.45,
 		height: HEIGHT,
-        backgroundColor: COLORS.NDA_GREEN,
+        	backgroundColor: COLORS.NDA_GREEN,
 	},
-    logo: {
-        width: WIDTH * .95,
-        resizeMode: 'contain',
-        justifyContent: 'center',
-        alignSelf: 'center',
-        height: HEIGHT * .515,
-    },
-    text: {
+	iconContainer: {
+		zIndex: 2,
+	},
+	icon: {
+		zIndex: 2,
+	},
+	logoContainer: {
+		zIndex: 1,
+	},
+    	logo: {
+    		zIndex: 1,
+    		position: 'absolute',
+    		top: 40,
+    		left: 0,
+       	 width: WIDTH * .95,
+       	 resizeMode: 'contain',
+       	 justifyContent: 'center',
+       	 alignSelf: 'center',
+       	 height: HEIGHT * .515,
+    	},
+    	text: {
         color: COLORS.NDA_BLUE,
         fontSize: 24,
         textAlign: 'center',
         paddingLeft: 50,
         paddingRight: 50,
+        marginBottom: 10,
     },
      h_divider: {
         borderBottomColor: COLORS.NDA_GREEN,

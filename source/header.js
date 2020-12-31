@@ -43,15 +43,15 @@ export default class Header extends Component {
                         		<SideMenu parentFunction={this.parentFunction}/>
                     	</Modal>
                     	<View style={styles.iconContainer}>
-                        	<Icon.Button iconStyle={styles.menuIcon}
-                        		name="bars"
-                          	size={50}
-                         		color={COLORS.WHITE}
-                           	backgroundColor={COLORS.NDA_BLUE}
-                         		onPress={() => this.toggleSideMenu()}
-                            />
-                            </View>
-                            <View style={styles.logoContainer}>
+                        		<Icon.Button iconStyle={styles.menuIcon}
+                        			name="bars"
+                          		size={50}
+                         			color={COLORS.WHITE}
+                           		backgroundColor={COLORS.NDA_BLUE}
+                         			onPress={() => this.toggleSideMenu()}
+                            	/>
+                        </View>
+                        <View style={styles.logoContainer}>
                     		<Image
                         			style={styles.logo}
                         			source={require('./images/circle_logo.png')}
