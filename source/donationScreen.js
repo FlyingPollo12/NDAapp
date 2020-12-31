@@ -9,14 +9,15 @@ import {
 	Dimensions,
 	Image,
 	ImageBackground,
+	Alert,
 } from 'react-native';
 import { WebView } from 'react-native-webview';
 import Modal from 'react-native-modal';
 import { requestOneTimePayment } from 'react-native-paypal';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import SideMenu from './sideMenu.js';
 import { COLORS } from './colors.js';
+import Header from './header.js';
 
 let HEIGHT = Dimensions.get("window").height;
 let WIDTH = Dimensions.get("window").width;
@@ -27,7 +28,6 @@ export default class newPage extends Component {
 		this.state={
 			amount: "0.00",
 			showModal: false, //for webview
-			isSideMenuVisible: false, //side menu
 			status: "Pending",
 		}
 	}
@@ -46,7 +46,7 @@ export default class newPage extends Component {
 	
 	render() {
 		return (
-			<SafeAreaView>
+			<SafeAreaView style={styles.page}>
 				<Modal style={styles.webview}
 					isVisible= {this.state.showModal}
 					onRequestClose={() => this.setState({ showModal: false })}
@@ -61,72 +61,45 @@ export default class newPage extends Component {
 						onLoadEnd={() => this.webView.postMessage(this.state.amount)}
 					/>
 				</Modal>
-				<Modal
-                        		isVisible={this.state.isSideMenuVisible}
-                                onBackdropPress={this.toggleSideMenu}
-                                onSwipeComplete={this.toggleSideMenu}
-                                animationIn="slideInLeft" 
-                                animationOut="slideOutLeft" 
-                                swipeDirection="left"
-                                style={styles.sideMenuStyle}
-                        >
-                        		<SideMenu parentFunction={this.parentFunction}/>
-                    	</Modal>
-                    	<View style={styles.header}>
-                    		<Text style={styles.headerText}>Donate</Text>
-                    		<View style={styles.iconContainer}>
-                        		<Icon.Button iconStyle={styles.menuIcon}
-                          		name="bars"
-                          		size={60}
-                            		color={COLORS.WHITE}
-                            		backgroundColor={COLORS.NDA_BLUE}
-                            		onPress={() => this.toggleSideMenu()}
-                            	/>
-                            	</View>
-                            	<View style={styles.logoContainer}>
-                    			<Image
-                        				style={styles.logo}
-                        				source={require('./images/logo_cut.png')}
-                        			/>
-                    		</View>
-                    	</View>
-				<TouchableOpacity style={styles.button} onPress={() => this.processPayment()}>
-					<Text style={styles.buttonText}>Donate</Text>
-				</TouchableOpacity>	
-				<Text>Payment Status: {this.state.status}</Text>
-				</SafeAreaView>
+				<Header callBack={this.headerCallBack}/>
+				<View style={styles.body}>
+					<Text style={styles.text}>All donations will go towards .... We appreciate everything you do for this community!</Text>
+					<Image
+						style={styles.bodyImage}
+						source={require('./images/pdfsplit/Booklet_7-7-1.png')}
+						resizeMode={'contain'}
+				 	/>
+				</View>
+				<View style={styles.footer}>
+					<TouchableOpacity style={styles.button} onPress={() => this.processPayment()}>
+						<Text style={styles.buttonText}>Donate</Text>
+					</TouchableOpacity>	
+					<Text style={styles.statusText}>Payment Status: {this.state.status}</Text>
+				</View>
+			</SafeAreaView>
 		);
 	}
 	
-	parentFunction = (msg) => {
+	headerCallBack = (msg) => {
 		if (msg == "donationScreen") {
-			this.toggleSideMenu();
 			this.props.navigation.navigate("donationScreen");
 		}
 		else if (msg == "parentScreen") {
-			this.toggleSideMenu();
 			this.props.navigation.navigate("parentScreen");
 		}
 		else if (msg == "studentScreen") {
-			this.toggleSideMenu();
 			this.props.navigation.navigate("studentScreen");
 		}
 		else if (msg == "alumniScreen") {
-			this.toggleSideMenu();
 			this.props.navigation.navigate("alumniScreen");
 		}
 		else if (msg == "goback") {
-			this.toggleSideMenu();
 			this.props.navigation.goBack();
 		}
 	}
 	
 	processPayment() {
 		this.setState({ showModal: true });
-	}
-	
-	toggleSideMenu = () => {
-		this.setState({ isSideMenuVisible: !this.state.isSideMenuVisible })
 	}
 	
 	toggleModal() {
@@ -137,26 +110,14 @@ export default class newPage extends Component {
 
 const styles = StyleSheet.create({
 	page: {
-	
-	},
-	header: {
-		backgroundColor: COLORS.NDA_BLUE,
-        height: HEIGHT * .20,
+
+		height: HEIGHT,
+		width: WIDTH,
 		flexDirection: 'column',
-		marginBottom: HEIGHT * .12,
 	},
-	headerText: {
-		margin: 10,
-		fontSize: 60,
-		textAlign: 'center',
-		color: '#9a9a9a',
-		borderWidth: 2,
-		borderRadius: 4,
-		borderColor: '#a5a5a5',
-	},
-	iconContainer: {
-		zIndex: 2,
-		width: 100,
+	body: {
+		flex: 2,
+		justifyContent: 'flex-end',
 	},
 	menuIcon: {
 		marginLeft: 10,
@@ -168,6 +129,10 @@ const styles = StyleSheet.create({
 		width: WIDTH * 0.45,
 		height: HEIGHT,
         backgroundColor: COLORS.NDA_GREEN,
+	footer: {
+		flex: 1,
+		height: 200,
+		backgroundColor: COLORS.NDA_BLUE,
 	},
 	webview: {	
 		position: 'absolute',
@@ -175,26 +140,23 @@ const styles = StyleSheet.create({
 		padding: 0,
 		marginLeft: 0,
 		width: WIDTH,
-		height: HEIGHT * 0.76,
+		height: HEIGHT * 0.86,
 	},
-	logoContainer: {
-		zIndex: 1,
+	bodyImage: {
+		marginTop: 20,
+		width: WIDTH,
+		height: WIDTH * 0.5 + 60,
 	},
-	logo: {
-		position: 'absolute',
-        width: WIDTH * .45,
-        left: WIDTH * .275,
-        height: WIDTH * .45,
-        top: -76,
-        zIndex: 1,
-    	},
 	text: {
-		fontSize: 20,
+		fontSize: 18,
+		paddingRight: 20,
+		paddingLeft: 20,
 	},
 	button: {
-		backgroundColor: 'blue',
+		backgroundColor: COLORS.NDA_GREEN,
 		padding: 20,
-		margin: 20,
+		marginBottom: 10,
+		marginTop: 30,
 		marginLeft: 40,
 		marginRight: 40,
 	},
@@ -202,5 +164,9 @@ const styles = StyleSheet.create({
 		textAlign: 'center',
 		fontSize: 30,
 		color: 'yellow',
+	},
+	statusText: {
+		color: 'white',
+		textAlign: 'center',
 	},
 })
