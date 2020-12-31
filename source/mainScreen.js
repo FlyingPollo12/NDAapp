@@ -170,8 +170,6 @@ export default class mainScreen extends Component {
             </ScrollView>
 		);
 	}
-    
-
 	
 	parentFunction = (msg) => {
 		if (msg == "donationScreen") {

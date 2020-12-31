@@ -18,8 +18,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import SideMenu from './sideMenu.js';
 import { COLORS } from './colors.js';
 
-
-
 let HEIGHT = Dimensions.get("window").height;
 let WIDTH = Dimensions.get("window").width;
 
@@ -143,7 +141,7 @@ const styles = StyleSheet.create({
 	},
 	header: {
 		backgroundColor: COLORS.NDA_BLUE,
-        	height: HEIGHT * .20,
+        height: HEIGHT * .20,
 		flexDirection: 'column',
 		marginBottom: HEIGHT * .12,
 	},
@@ -169,7 +167,7 @@ const styles = StyleSheet.create({
 		margin: 0,
 		width: WIDTH * 0.45,
 		height: HEIGHT,
-        	backgroundColor: COLORS.NDA_GREEN,
+        backgroundColor: COLORS.NDA_GREEN,
 	},
 	webview: {	
 		position: 'absolute',
@@ -184,11 +182,11 @@ const styles = StyleSheet.create({
 	},
 	logo: {
 		position: 'absolute',
-        	width: WIDTH * .45,
-        	left: WIDTH * .275,
-        	height: WIDTH * .45,
-        	top: -76,
-        	zIndex: 1,
+        width: WIDTH * .45,
+        left: WIDTH * .275,
+        height: WIDTH * .45,
+        top: -76,
+        zIndex: 1,
     	},
 	text: {
 		fontSize: 20,
