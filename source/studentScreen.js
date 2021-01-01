@@ -24,6 +24,7 @@ export default class newPage extends Component {
 		}
 	}
 	
+    
 	
 	render() {
 		return (

@@ -19,8 +19,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import * as rssParser from 'react-native-rss-parser';
 import _ from "lodash";
 
-
-
 Icon.loadFont();
 
 const WIDTH = Dimensions.get("window").width;
@@ -41,22 +39,15 @@ export default class mainScreen extends Component {
     }
 	
     fetchData() {
-    console.log('...inFetch');
+        console.log('...inFetch');
 
-    fetch('https://www.notredameacademy.com/rss.cfm?news=0')
-      .then(response => response.text())
-      .then(responseData => rssParser.parse(responseData))
-      .then(rss => {
-      this.setState({ NDA_news: _.cloneDeep(rss.items), loading: false }, () => {
-          if (this.state.NDA_news === rss.items) {
-            console.log('News: is a shallow copy');
-          } else {
-            console.log('News: is a deep copy');
-          }
-          console.log(rss.items[0].links[0].url);
+        fetch('https://www.notredameacademy.com/rss.cfm?news=0')
+          .then(response => response.text())
+          .then(responseData => rssParser.parse(responseData))
+          .then(rss => {
+            this.setState({ NDA_news: _.cloneDeep(rss.items), loading: false }, () => {});
           });
-      });
-  }
+    }
     
 	render() {
         console.log("...inRender");
@@ -93,7 +84,8 @@ export default class mainScreen extends Component {
                         		source={require('./images/NDA_LOGO_V.png')}
                         	/>
                     </View>
-                    <Text style = {styles.text}>Give us your money, we will use it for the children. All of the children.</Text>
+                    <Text style = {styles.text}>Where faith and education come together in a Vibrant Growing Community</Text>
+                    {/*Give us your money, we will use it for the children. All of the children.*/}
                     {/*End Hamburger Button*/}
                     
                     {/*News Feed*/}
@@ -111,7 +103,7 @@ export default class mainScreen extends Component {
                                         }}
                                     />
                                 <Text style={styles.newsBody}>{this.state.NDA_news[0].description.trim()}</Text>
-                                <Text style={{marginLeft: 15, fontSize: 16,}}>Read more:</Text>
+                                <Text style={{marginLeft: 15, fontSize: 16, fontFamily: 'Spectral-Light',}}>Read more:</Text>
                                 <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[0].links[0].url)}>Source</Text>
                             </Card>
                         
@@ -124,7 +116,7 @@ export default class mainScreen extends Component {
                                         }}
                                     />
                                 <Text style={styles.newsBody}>{this.state.NDA_news[1].description.trim()}</Text>
-                                <Text style={{marginLeft: 15, fontSize: 16,}}>Read more:</Text>
+                                <Text style={{marginLeft: 15, fontSize: 16, fontFamily: 'Spectral-Light',}}>Read more:</Text>
                                 <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[1].links[0].url)}>Source</Text>
                             </Card>
                         
@@ -137,7 +129,7 @@ export default class mainScreen extends Component {
                                         }}
                                     />
                                 <Text style={styles.newsBody}>{this.state.NDA_news[2].description.trim()}</Text>
-                                <Text style={{marginLeft: 15, fontSize: 16,}}>Read more:</Text>
+                                <Text style={{marginLeft: 15, fontSize: 16, fontFamily: 'Spectral-Light',}}>Read more:</Text>
                                 <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[2].links[0].url)}>Source</Text>
                             </Card>
                         
@@ -150,7 +142,7 @@ export default class mainScreen extends Component {
                                         }}
                                     />
                                 <Text style={styles.newsBody}>{this.state.NDA_news[3].description.trim()}</Text>
-                                <Text style={{marginLeft: 15, fontSize: 16,}}>Read more:</Text>
+                                <Text style={{marginLeft: 15, fontSize: 16, fontFamily: 'Spectral-Light',}}>Read more:</Text>
                                 <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[3].links[0].url)}>Source</Text>
                             </Card>
                         
@@ -163,7 +155,7 @@ export default class mainScreen extends Component {
                                         }}
                                     />
                                 <Text style={styles.newsBody}>{this.state.NDA_news[4].description.trim()}</Text>
-                                <Text style={{marginLeft: 15, fontSize: 16,}}>Read more:</Text>
+                                <Text style={{marginLeft: 15, fontSize: 16, fontFamily: 'Spectral-Light',}}>Read more:</Text>
                                 <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[4].links[0].url)}>Source</Text>
                             </Card>
                         
@@ -172,8 +164,6 @@ export default class mainScreen extends Component {
             </SafeAreaView>
 		);
 	}
-    
-
 	
 	parentFunction = (msg) => {
 		if (msg == "donationScreen") {
@@ -218,7 +208,7 @@ const styles = StyleSheet.create({
 		margin: 0,
 		width: WIDTH * 0.45,
 		height: HEIGHT,
-        	backgroundColor: COLORS.NDA_GREEN,
+        backgroundColor: COLORS.NDA_GREEN,
 	},
 	iconContainer: {
 		zIndex: 2,
@@ -229,23 +219,25 @@ const styles = StyleSheet.create({
 	logoContainer: {
 		zIndex: 1,
 	},
-    	logo: {
-    		zIndex: 1,
-    		position: 'absolute',
-    		top: -4,
-    		left: WIDTH * .025,
-       	 width: WIDTH * .95,
-       	 resizeMode: 'contain',
-       	 justifyContent: 'center',
-       	 alignSelf: 'center',
-       	 height: HEIGHT * .515,
-    	},
-    	text: {
+    logo: {
+        zIndex: 1,
+        position: 'absolute',
+        top: 40,
+        left: WIDTH * .025,
+        width: WIDTH * .95,
+        resizeMode: 'contain',
+        justifyContent: 'center',
+        alignSelf: 'center',
+        height: HEIGHT * .515,
+    },
+    text: {
+        fontFamily: 'Lora-Regular',
         color: COLORS.NDA_BLUE,
         fontSize: 24,
         textAlign: 'center',
-        paddingLeft: 50,
-        paddingRight: 50,
+        justifyContent: 'center',
+        paddingLeft: 40,
+        paddingRight: 40,
         marginBottom: 10,
     },
      h_divider: {
@@ -263,7 +255,8 @@ const styles = StyleSheet.create({
         paddingRight: 50,
     },
     newsHeadline:{
-        fontSize: 24,
+        fontFamily: 'CabinSketch-Regular',
+        fontSize: 36,
         textAlign:'left',
         paddingBottom: 15,
     },
@@ -274,6 +267,7 @@ const styles = StyleSheet.create({
         marginBottom: 15,
     },
     newsBody:{
+        fontFamily: 'Spectral-Light',
         includeFontPadding: false,
         textAlignVertical: 'center',
         fontSize: 16,

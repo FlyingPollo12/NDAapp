@@ -19,8 +19,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { COLORS } from './colors.js';
 import Header from './header.js';
 
-
-
 let HEIGHT = Dimensions.get("window").height;
 let WIDTH = Dimensions.get("window").width;
 
@@ -121,6 +119,7 @@ export default class newPage extends Component {
 
 const styles = StyleSheet.create({
 	page: {
+
 		height: HEIGHT,
 		width: WIDTH,
 		flexDirection: 'column',
@@ -129,7 +128,18 @@ const styles = StyleSheet.create({
 		flex: 2,
 		justifyContent: 'space-evenly',
 	},
-	footer: {
+	menuIcon: {
+		marginLeft: 10,
+    },
+	sideMenuStyle: {
+		position: 'absolute',
+		left: 0,
+		margin: 0,
+		width: WIDTH * 0.45,
+		height: HEIGHT,
+        backgroundColor: COLORS.NDA_GREEN,
+    },
+    footer: {
 		flex: 1,
 		height: 200,
 		backgroundColor: COLORS.NDA_BLUE,
@@ -148,7 +158,8 @@ const styles = StyleSheet.create({
 		height: WIDTH * 0.5 + 60,
 	},
 	text: {
-		fontSize: 22,
+        	fontFamily: 'Lora-Regular',
+		fontSize: 18,
 		paddingRight: 20,
 		paddingLeft: 20,
 	},
@@ -174,11 +185,13 @@ const styles = StyleSheet.create({
 		marginRight: 40,
 	},
 	buttonText: {
+        fontFamily: 'Graduate-Regular',
 		textAlign: 'center',
 		fontSize: 30,
 		color: 'yellow',
 	},
 	statusText: {
+        fontFamily: 'Lora-Regular',
 		color: 'white',
 		textAlign: 'center',
 	},
