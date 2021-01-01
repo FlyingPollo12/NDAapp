@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
 	},
 	menuIcon: {
 		marginLeft: 10,
-       },
+    },
 	sideMenuStyle: {
 		position: 'absolute',
 		left: 0,
@@ -129,7 +129,8 @@ const styles = StyleSheet.create({
 		width: WIDTH * 0.45,
 		height: HEIGHT,
         backgroundColor: COLORS.NDA_GREEN,
-	footer: {
+    },
+    footer: {
 		flex: 1,
 		height: 200,
 		backgroundColor: COLORS.NDA_BLUE,
@@ -148,6 +149,7 @@ const styles = StyleSheet.create({
 		height: WIDTH * 0.5 + 60,
 	},
 	text: {
+        fontFamily: 'Lora-Regular',
 		fontSize: 18,
 		paddingRight: 20,
 		paddingLeft: 20,
@@ -161,11 +163,13 @@ const styles = StyleSheet.create({
 		marginRight: 40,
 	},
 	buttonText: {
+        fontFamily: 'Graduate-Regular',
 		textAlign: 'center',
 		fontSize: 30,
 		color: 'yellow',
 	},
 	statusText: {
+        fontFamily: 'Lora-Regular',
 		color: 'white',
 		textAlign: 'center',
 	},

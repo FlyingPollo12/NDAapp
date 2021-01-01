@@ -13,6 +13,7 @@ import Modal from 'react-native-modal';
 import { COLORS } from './colors.js'; //Color Sheet
 import SideMenu from './sideMenu.js';
 import { WebView } from 'react-native-webview';
+import Header from './header.js';
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
@@ -32,7 +33,7 @@ export default class alumni extends React.Component {
   render() {
     return (
       <SafeAreaView>
-        
+        <Header callBack={this.headerCallBack}/>
         <View style={styles.taskBar}>
             <TouchableOpacity style={styles.taskBtn} onPress={() => this.toggleModal(1)}> 
                 <Text style={styles.taskBtnTxt}>Share an Update</Text>
@@ -48,8 +49,6 @@ export default class alumni extends React.Component {
         
         </View>
             
-            
-        
         <Modal
             style={styles.webView}
             isVisible= {this.state.showSAU}
@@ -76,7 +75,6 @@ export default class alumni extends React.Component {
             </WebView>    
         </Modal>
             
-            
         <Modal
             style={styles.webView}
             isVisible= {this.state.showHOF}
@@ -102,7 +100,25 @@ export default class alumni extends React.Component {
             this.setState(prevState => ({ showRGA: !prevState.showRGA }));
         else
              this.setState(prevState => ({ showHOF: !prevState.showHOF }));
-    } 
+    }
+    
+    headerCallBack = (msg) => {
+		if (msg == "donationScreen") {
+			this.props.navigation.navigate("donationScreen");
+		}
+		else if (msg == "parentScreen") {
+			this.props.navigation.navigate("parentScreen");
+		}
+		else if (msg == "studentScreen") {
+			this.props.navigation.navigate("studentScreen");
+		}
+		else if (msg == "alumniScreen") {
+			this.props.navigation.navigate("alumniScreen");
+		}
+		else if (msg == "goback") {
+			this.props.navigation.goBack();
+		}
+	}
     
 }
 
@@ -128,6 +144,7 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     taskBtnTxt: {
+        fontFamily: 'Calibri',
         textAlign: 'center',
         textAlignVertical: 'center',
         color: COLORS.WHITE,  
