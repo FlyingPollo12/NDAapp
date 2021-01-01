@@ -31,7 +31,13 @@ export default class newPage extends Component {
 			amount: "0.00",
 			showModal: false, //for webview
 			status: "Pending",
+			totalRaised: "0.00",
 		}
+	}
+	
+	componentDidMount() {
+		//call my api to get acct balance
+		
 	}
 	
 	handleResponse = data => {
@@ -66,11 +72,14 @@ export default class newPage extends Component {
 				<Header callBack={this.headerCallBack}/>
 				<View style={styles.body}>
 					<Text style={styles.text}>All donations will go towards .... We appreciate everything you do for this community!</Text>
-					<Image
+					<View style={styles.counter}>
+						<Text style={styles.counterText}>{this.state.totalRaised}</Text>
+					</View>
+					{/*}<Image
 						style={styles.bodyImage}
 						source={require('./images/pdfsplit/Booklet_7-7-1.png')}
 						resizeMode={'contain'}
-				 	/>
+				 	/>*/}
 				</View>
 				<View style={styles.footer}>
 					<TouchableOpacity style={styles.button} onPress={() => this.processPayment()}>
@@ -118,7 +127,7 @@ const styles = StyleSheet.create({
 	},
 	body: {
 		flex: 2,
-		justifyContent: 'flex-end',
+		justifyContent: 'space-evenly',
 	},
 	footer: {
 		flex: 1,
@@ -139,9 +148,22 @@ const styles = StyleSheet.create({
 		height: WIDTH * 0.5 + 60,
 	},
 	text: {
-		fontSize: 18,
+		fontSize: 22,
 		paddingRight: 20,
 		paddingLeft: 20,
+	},
+	counter: {
+		padding: 20,
+		margin: 10,
+		marginLeft: 40,
+		marginRight: 40,
+		backgroundColor: COLORS.NDA_BLUE,
+	},
+	counterText: {
+		fontSize: 40,
+		color: 'red',
+		textAlign: 'center',
+		backgroundColor: 'black',
 	},
 	button: {
 		backgroundColor: COLORS.NDA_GREEN,
