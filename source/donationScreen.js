@@ -29,7 +29,13 @@ export default class newPage extends Component {
 			amount: "0.00",
 			showModal: false, //for webview
 			status: "Pending",
+			totalRaised: "0.00",
 		}
+	}
+	
+	componentDidMount() {
+		//call my api to get acct balance
+		this.getTotalRaised();
 	}
 	
 	handleResponse = data => {
@@ -63,21 +69,33 @@ export default class newPage extends Component {
 				</Modal>
 				<Header callBack={this.headerCallBack}/>
 				<View style={styles.body}>
+					<View style={styles.counterContainer}>
+						<Text style={styles.counterText}>We have raised</Text>
+						<Text style={styles.counterNumber}>${this.state.totalRaised}</Text>
+					</View>
 					<Text style={styles.text}>All donations will go towards .... We appreciate everything you do for this community!</Text>
-					<Image
+					{/*}<Image
 						style={styles.bodyImage}
 						source={require('./images/pdfsplit/Booklet_7-7-1.png')}
 						resizeMode={'contain'}
-				 	/>
+				 	/>*/}
 				</View>
 				<View style={styles.footer}>
 					<TouchableOpacity style={styles.button} onPress={() => this.processPayment()}>
 						<Text style={styles.buttonText}>Donate</Text>
 					</TouchableOpacity>	
-					<Text style={styles.statusText}>Payment Status: {this.state.status}</Text>
+					<Text style={styles.afterText}>All proceeds will go to funding for grants and for building maintence / improvement</Text>
 				</View>
 			</SafeAreaView>
 		);
+	}
+	
+	async getTotalRaised() {
+		await fetch('https://slashsolutions.co/paypal/GetBalance.php')
+		.then(resp => resp.json())
+		.then(resp => {
+			this.setState({ totalRaised: resp.amount });
+		})
 	}
 	
 	headerCallBack = (msg) => {
@@ -110,30 +128,22 @@ export default class newPage extends Component {
 
 const styles = StyleSheet.create({
 	page: {
-
 		height: HEIGHT,
 		width: WIDTH,
 		flexDirection: 'column',
 	},
 	body: {
+		marginTop: 50,
 		flex: 2,
-		justifyContent: 'flex-end',
+		justifyContent: 'space-evenly',
 	},
 	menuIcon: {
 		marginLeft: 10,
     },
-	sideMenuStyle: {
-		position: 'absolute',
-		left: 0,
-		margin: 0,
-		width: WIDTH * 0.45,
-		height: HEIGHT,
-        backgroundColor: COLORS.NDA_GREEN,
-    },
     footer: {
 		flex: 1,
-		height: 200,
 		backgroundColor: COLORS.NDA_BLUE,
+		justifyContent: 'center',
 	},
 	webview: {	
 		position: 'absolute',
@@ -149,27 +159,54 @@ const styles = StyleSheet.create({
 		height: WIDTH * 0.5 + 60,
 	},
 	text: {
-        fontFamily: 'Lora-Regular',
+		textAlign: 'center',
+        	fontFamily: 'Lora-Regular',
 		fontSize: 18,
 		paddingRight: 20,
 		paddingLeft: 20,
 	},
-	button: {
+	counterContainer: {
+		flexDirection: 'column',
+		justifyContent: 'center',
+		marginRight: 30,
+		marginLeft: 30,
+		borderWidth: 2,
+	},
+	counterText: {
 		backgroundColor: COLORS.NDA_GREEN,
+		fontSize: 40,
+		padding: 15,
+		textAlign: 'center',
+	},
+	counterNumber: {
 		padding: 20,
-		marginBottom: 10,
-		marginTop: 30,
-		marginLeft: 40,
-		marginRight: 40,
+		textAlign: 'center',
+		fontSize: 60,
+		fontFamily: 'StardosStencil-Regular',
+	},
+	button: {
+		backgroundColor: '#555555',
+		padding: 25,
+		borderRadius: 10,
+		marginRight: WIDTH * 0.16,
+		marginLeft: WIDTH * 0.16,
 	},
 	buttonText: {
-        fontFamily: 'Graduate-Regular',
+        	fontFamily: 'Graduate-Regular',
 		textAlign: 'center',
-		fontSize: 30,
+		fontSize: 45,
 		color: 'yellow',
 	},
+	afterText: {
+		paddingTop: 8,
+		marginLeft: 40,
+		marginRight: 40,
+		textAlign: 'center',
+		fontSize: 12,
+		color: 'white',
+	},
 	statusText: {
-        fontFamily: 'Lora-Regular',
+        	fontFamily: 'Lora-Regular',
 		color: 'white',
 		textAlign: 'center',
 	},

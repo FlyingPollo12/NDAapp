@@ -53,8 +53,8 @@ export default class mainScreen extends Component {
         console.log("...inRender");
         if (this.state.loading) return <Text>Loading.....</Text>
 		return 	(
-            <ScrollView bounces={true}>
-                <SafeAreaView>
+            <SafeAreaView>
+            		<ScrollView>
                     {/*SideMenu*/}
                     <Modal
                         isVisible={this.state.isSideMenuVisible}
@@ -160,8 +160,8 @@ export default class mainScreen extends Component {
                             </Card>
                         
                     </View>
-                </SafeAreaView>
-            </ScrollView>
+                </ScrollView>
+            </SafeAreaView>
 		);
 	}
 	
@@ -196,7 +196,7 @@ export default class mainScreen extends Component {
 const styles = StyleSheet.create({
 	header: {
 		backgroundColor: COLORS.NDA_BLUE,
-        height: HEIGHT * .20,
+        	height: HEIGHT * .15,
 		flexDirection: 'row',
        	alignItems: 'flex-end',
        	zIndex: 10,

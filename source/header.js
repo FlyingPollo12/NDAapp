@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
 		backgroundColor: COLORS.NDA_BLUE,
         	height: HEIGHT * .15,
 		flexDirection: 'column-reverse',
-		marginBottom: HEIGHT * .12,
+		marginBottom: 0,
 	},
 	headerText: {
 		margin: 5,
