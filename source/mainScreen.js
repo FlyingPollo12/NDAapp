@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
     logo: {
         zIndex: 1,
         position: 'absolute',
-        top: 40,
+        top: 0,
         left: WIDTH * .025,
         width: WIDTH * .95,
         resizeMode: 'contain',
