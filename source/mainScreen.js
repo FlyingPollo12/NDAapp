@@ -196,7 +196,7 @@ export default class mainScreen extends Component {
 const styles = StyleSheet.create({
 	header: {
 		backgroundColor: COLORS.NDA_BLUE,
-        	height: HEIGHT * .15,
+        height: HEIGHT * .15,
 		flexDirection: 'row',
        	alignItems: 'flex-end',
        	zIndex: 10,
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
     logo: {
         zIndex: 1,
         position: 'absolute',
-        top: 40,
+        top: 0,
         left: WIDTH * .025,
         width: WIDTH * .95,
         resizeMode: 'contain',
