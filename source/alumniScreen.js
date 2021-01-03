@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   ScrollView,
   Image,
+  ImageBackground,
   TouchableOpacity,
   StyleSheet,
   Dimensions,
@@ -14,6 +15,7 @@ import { COLORS } from './colors.js'; //Color Sheet
 import SideMenu from './sideMenu.js';
 import { WebView } from 'react-native-webview';
 import Header from './header.js';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
@@ -32,8 +34,10 @@ export default class alumni extends React.Component {
     
   render() {
     return (
-      <SafeAreaView>
+      <SafeAreaView style={styles.page}>
         <Header callBack={this.headerCallBack}/>
+        <Text style={styles.alumTitle}>Alumni</Text>
+        <View style={styles.h_divider}/>
         <View style={styles.taskBar}>
             <TouchableOpacity style={styles.taskBtn} onPress={() => this.toggleModal(1)}> 
                 <Text style={styles.taskBtnTxt}>Share an Update</Text>
@@ -46,19 +50,30 @@ export default class alumni extends React.Component {
             <TouchableOpacity style={styles.taskBtn} onPress={() => this.toggleModal(3)}> 
                 <Text style={styles.taskBtnTxt}>Hall of Fame</Text>
             </TouchableOpacity>
-        
         </View>
+            
+              
+        <ImageBackground
+            source={require('./images/NDA_SchoolFront.png')}
+            style={styles.bottomBanner} >
+        </ImageBackground>
             
         <Modal
             style={styles.webView}
             isVisible= {this.state.showSAU}
             onRequestClose={() => this.setState({ showSAU: false })}
             onBackdropPress={() => this.setState({ showSAU: false })}>
+            <Icon.Button
+                name="times"
+                size={50}
+                color={COLORS.WHITE}
+                backgroundColor={COLORS.NDA_BLUE}
+                onPress={() => this.toggleModal(1)}>
+            </Icon.Button>
             <WebView
                 style={styles.webview}
                 ref={webView => (this.webView = webView)}
-                source={{ uri: "https://www.notredameacademy.com/alumni/send-an-update" }}
-                onNavigationStateChange={(data) => this.handleResponse(data)}>
+                source={{ uri: "https://www.notredameacademy.com/alumni/send-an-update" }}>
             </WebView>    
         </Modal>
             
@@ -67,11 +82,17 @@ export default class alumni extends React.Component {
             isVisible= {this.state.showRGA}
             onRequestClose={() => this.setState({ showRGA: false })}
             onBackdropPress={() => this.setState({ showRGA: false })}>
+            <Icon.Button
+                name="times"
+                size={50}
+                color={COLORS.WHITE}
+                backgroundColor={COLORS.NDA_BLUE}
+                onPress={() => this.toggleModal(2)}>
+            </Icon.Button>
             <WebView
                 style={styles.webview}
                 ref={webView => (this.webView = webView)}
-                source={{ uri: "https://www.notredameacademy.com/alumni/reunions-gatherings" }}
-                onNavigationStateChange={(data) => this.handleResponse(data)}>
+                source={{ uri: "https://www.notredameacademy.com/alumni/reunions-gatherings" }}>
             </WebView>    
         </Modal>
             
@@ -80,15 +101,19 @@ export default class alumni extends React.Component {
             isVisible= {this.state.showHOF}
             onRequestClose={() => this.setState({ showHOF: false })}
             onBackdropPress={() => this.setState({ showHOF: false })}>
+            <Icon.Button
+                name="times"
+                size={50}
+                color={COLORS.WHITE}
+                backgroundColor={COLORS.NDA_BLUE}
+                onPress={() => this.toggleModal(3)}>
+            </Icon.Button>
             <WebView
                 style={styles.webview}
                 ref={webView => (this.webView = webView)}
-                source={{ uri: "https://www.notredameacademy.com/alumni/alumni-hall-of-fame" }}
-                onNavigationStateChange={(data) => this.handleResponse(data)}>
+                source={{ uri: "https://www.notredameacademy.com/alumni/alumni-hall-of-fame" }}>
             </WebView>    
-        </Modal>
-            
-            
+        </Modal>   
       </SafeAreaView>
     );
   }
@@ -119,10 +144,38 @@ export default class alumni extends React.Component {
 			this.props.navigation.goBack();
 		}
 	}
-    
 }
 
 const styles = StyleSheet.create({
+    alumTitle: {
+        alignSelf: 'center',
+        marginLeft: 15,
+        color: COLORS.NDA_BLUE,
+        marginTop: HEIGHT * .10,
+        fontSize: 64,
+        fontFamily: 'Lora-Bold',
+    },
+    bottomBanner: {
+        flex: 1,
+        justifyContent: 'flex-end',
+        flexDirection: 'column-reverse',
+        height: 400,
+        width: '100%',
+        resizeMode: 'contain',
+        backgroundColor: 'transparent',
+        zIndex: 0,
+    },
+    h_divider: {
+        borderBottomColor: COLORS.NDA_BLUE,
+        alignSelf: 'center',
+        borderBottomWidth: 5,
+        marginBottom: 30,
+        width: WIDTH * .75,
+    },
+    page: {
+        height: HEIGHT,
+        width: WIDTH,
+    },
     webView: {
         bottom: 0,
 		padding: 0,
@@ -130,23 +183,28 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         position: 'absolute',
 		width: WIDTH,
-		height: HEIGHT * 0.85,
+		height: HEIGHT * .975,
     },
     taskBar: {
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        alignSelf: 'center',
-        flex: 1,
+        zIndex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
     },
     taskBtn: {
         justifyContent: 'center',
         backgroundColor: COLORS.NDA_BLUE,
+        marginLeft: 15,
+        marginRight: 15,
+        borderRadius: 12,
         padding: 20,
+        marginBottom: 30,
     },
     taskBtnTxt: {
-        fontFamily: 'Calibri',
+        fontSize: 24,
+        fontFamily: 'Lora-Regular',
         textAlign: 'center',
         textAlignVertical: 'center',
         color: COLORS.WHITE,  
     },
+    
 })

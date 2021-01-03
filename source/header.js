@@ -20,48 +20,43 @@ export default class Header extends Component {
 		super(props);
 		
 		this.state = {
-			title: this.props.title,
 			menuVisible: false,
 		}
 	}
 	
 	callBack = (msg) => this.props.callBack(msg);
 	
-	
 	render() {
 		return (
 			<View style={styles.header}>
 				<Modal
-                        		isVisible={this.state.menuVisible}
-                                onBackdropPress={this.toggleSideMenu}
-                                onSwipeComplete={this.toggleSideMenu}
-                                animationIn="slideInLeft" 
-                                animationOut="slideOutLeft" 
-                                swipeDirection="left"
-                                style={styles.sideMenuStyle}
-                        	>
-                        		<SideMenu parentFunction={this.parentFunction}/>
-                    	</Modal>
-                    	<View style={styles.iconContainer}>
-                        		<Icon.Button iconStyle={styles.menuIcon}
-                        			name="bars"
-                          		size={50}
-                         			color={COLORS.WHITE}
-                           		backgroundColor={COLORS.NDA_BLUE}
-                         			onPress={() => this.toggleSideMenu()}
-                            	/>
-                        </View>
-                        <View style={styles.logoContainer}>
-                    		<Image
-                        			style={styles.logo}
-                        			source={require('./images/circle_logo.png')}
-                        		/>
-                    	</View>
-                    	{this.renderTitle()}
-                    </View>
+                    isVisible={this.state.menuVisible}
+                    onBackdropPress={this.toggleSideMenu}
+                    onSwipeComplete={this.toggleSideMenu}
+                    animationIn="slideInLeft" 
+                    animationOut="slideOutLeft" 
+                    swipeDirection="left"
+                    style={styles.sideMenuStyle}>
+                    <SideMenu parentFunction={this.parentFunction}/>
+                </Modal>
+                <View style={styles.iconContainer}>
+                    <Icon.Button iconStyle={styles.menuIcon}
+                        name="bars"
+                        size={50}
+                        color={COLORS.WHITE}
+                        backgroundColor={COLORS.NDA_BLUE}
+                        onPress={() => this.toggleSideMenu()}
+                    />
+                </View>
+                <View style={styles.logoContainer}>
+                    <Image
+                        style={styles.logo}
+                        source={require('./images/circle_logo.png')} />
+                </View>
+                    {this.renderTitle()}
+                </View>
 		)
 	}
-	
 	
 	renderTitle() {
 		if (this.state.title != null) {
@@ -73,11 +68,9 @@ export default class Header extends Component {
 		}
 	}
 	
-	
 	toggleSideMenu = () => {
 		this.setState({ menuVisible: !this.state.menuVisible });
 	}
-	
 	
 	parentFunction = (msg) => {
 		if (msg == "donationScreen") {
@@ -99,8 +92,6 @@ export default class Header extends Component {
 	}
 }
 
-
-
 const styles = StyleSheet.create({
 	sideMenuStyle: {
 		position: 'absolute',
@@ -112,7 +103,7 @@ const styles = StyleSheet.create({
 	},
 	header: {
 		backgroundColor: COLORS.NDA_BLUE,
-        	height: HEIGHT * .15,
+        height: HEIGHT * .15,
 		flexDirection: 'column-reverse',
 		marginBottom: 0,
 	},
@@ -134,10 +125,10 @@ const styles = StyleSheet.create({
 	},
 	logo: {
 		position: 'absolute',
-        	width: WIDTH * .35,
-        	left: WIDTH * .325,
-        	height: WIDTH * .35,
-        	top: 0,
-        	zIndex: 1,
+        width: WIDTH * .35,
+        left: WIDTH * .325,
+        height: WIDTH * .35,
+        top: 0,
+        zIndex: 1,
     	},
 })
