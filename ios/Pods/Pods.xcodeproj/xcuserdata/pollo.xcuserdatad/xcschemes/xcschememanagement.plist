@@ -129,6 +129,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RNPDF.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>RNPaypal.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -259,12 +264,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>react-native-progress-view.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>react-native-safe-area-context.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>react-native-webview.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>rn-fetch-blob.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

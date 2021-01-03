@@ -11,6 +11,7 @@ import { Text,
 import Modal from 'react-native-modal';
 import {COLORS} from './colors.js';     //Color Sheet
 import SideMenu from './sideMenu.js';
+import PDFView from 'react-native-view-pdf/lib/index';
 
 import Header from './header.js';
 
@@ -18,7 +19,8 @@ import Header from './header.js';
 
 const WIDTH = Dimensions.get("window").width;
 const HEIGHT = Dimensions.get("window").height;
-
+const codebook = 'www.notredameacademy.com/uploaded/Parents/Codes_and_Handbooks/Handbook-_corrected_page_numbers_FINAL-PDF.pdf';
+const codebookFile = 'handbook.pdf';
 
 export default class newPage extends Component {
 	constructor(props: Props) {
@@ -31,11 +33,15 @@ export default class newPage extends Component {
 	render() {
 		return (
 			<SafeAreaView>
-				<Header callBackFunction={this.headerCallBackFunction} />
+				<Header callBack={this.headerCallBack} />
+				<PDFView
+					resource={codebookFile}
+					resourceType={'file'}
+					onError={(error) => console.log(error)}
+				/>
 			</SafeAreaView>
 		);
 	}
-	
 	
 	headerCallBack = (msg) => {
 		if (msg == "donationScreen") {
@@ -55,3 +61,10 @@ export default class newPage extends Component {
 		}
 	}
 }
+
+
+const styles = StyleSheet.create({
+	page:{ 
+	
+	},
+})
