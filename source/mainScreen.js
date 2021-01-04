@@ -29,8 +29,8 @@ export default class mainScreen extends Component {
 		super(props);
 		this.state = {
 			isSideMenuVisible: false,
-            NDA_news: [],
-            loading: true,
+            		NDA_news: [],
+            		loading: true,
 		}
 	}
     

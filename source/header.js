@@ -30,31 +30,33 @@ export default class Header extends Component {
 		return (
 			<View style={styles.header}>
 				<Modal
-                    isVisible={this.state.menuVisible}
-                    onBackdropPress={this.toggleSideMenu}
-                    onSwipeComplete={this.toggleSideMenu}
-                    animationIn="slideInLeft" 
-                    animationOut="slideOutLeft" 
-                    swipeDirection="left"
-                    style={styles.sideMenuStyle}>
-                    <SideMenu parentFunction={this.parentFunction}/>
-                </Modal>
-                <View style={styles.iconContainer}>
-                    <Icon.Button iconStyle={styles.menuIcon}
-                        name="bars"
-                        size={50}
-                        color={COLORS.WHITE}
-                        backgroundColor={COLORS.NDA_BLUE}
-                        onPress={() => this.toggleSideMenu()}
-                    />
-                </View>
-                <View style={styles.logoContainer}>
-                    <Image
-                        style={styles.logo}
-                        source={require('./images/circle_logo.png')} />
-                </View>
-                    {this.renderTitle()}
-                </View>
+                        		isVisible={this.state.menuVisible}
+                                onBackdropPress={this.toggleSideMenu}
+                                onSwipeComplete={this.toggleSideMenu}
+                                animationIn="slideInLeft" 
+                                animationOut="slideOutLeft"
+                                swipeDirection="left"
+                                style={styles.sideMenuStyle}
+                        	>
+                        		<SideMenu parentFunction={this.parentFunction}/>
+                    	</Modal>
+                    	<View style={styles.iconContainer}>
+                        		<Icon.Button iconStyle={styles.menuIcon}
+                        			name="bars"
+                          		size={50}
+                         			color={COLORS.WHITE}
+                           		backgroundColor={COLORS.NDA_BLUE}
+                         			onPress={() => this.toggleSideMenu()}
+                            	/>
+                        </View>
+                        <View style={styles.logoContainer}>
+                    		<Image
+                        			style={styles.logo}
+                        			source={require('./images/circle_logo.png')}
+                        		/>
+                    	</View>
+                    	{this.renderTitle()}
+                    </View>
 		)
 	}
 	
@@ -74,6 +76,9 @@ export default class Header extends Component {
 	
 	parentFunction = (msg) => {
 		if (msg == "donationScreen") {
+			this.toggleSideMenu();
+		}
+		else if (msg == "homeScreen") {
 			this.toggleSideMenu();
 		}
 		else if (msg == "parentScreen") {

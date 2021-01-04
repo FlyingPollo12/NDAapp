@@ -16,7 +16,6 @@
     "tag": "v7.1.0"
   },
   "source_files": "RNVectorIconsManager/**/*.{h,m}",
-  "resources": "Fonts/*.ttf",
   "preserve_paths": "**/*.js",
   "dependencies": {
     "React": [

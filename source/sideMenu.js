@@ -42,6 +42,9 @@ export default class sideMenu extends Component {
                 />
                 
 				<View style={{height: 30}}></View>
+				<TouchableOpacity style={styles.button} onPress={() => this.parentFunction("homeScreen")}>
+					<Text style={styles.buttonText}>Home</Text>
+				</TouchableOpacity>
 				<TouchableOpacity style={styles.button} onPress={() => this.parentFunction("donationScreen")}>
 					<Text style={styles.buttonText}>Donations</Text>
 				</TouchableOpacity>
