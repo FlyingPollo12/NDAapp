@@ -13,10 +13,14 @@ import java.util.ArrayList;
 
 // @react-native-community/masked-view
 import org.reactnative.maskedview.RNCMaskedViewPackage;
+// @react-native-community/progress-view
+import com.reactnativecommunity.progressview.RNCProgressViewPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-paypal
 import com.smarkets.paypal.RNPaypalPackage;
+// react-native-pdf
+import org.wonday.pdf.RCTPdfView;
 // react-native-safe-area-context
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 // react-native-screens
@@ -25,6 +29,8 @@ import com.swmansion.rnscreens.RNScreensPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 // react-native-webview
 import com.reactnativecommunity.webview.RNCWebViewPackage;
+// rn-fetch-blob
+import com.RNFetchBlob.RNFetchBlobPackage;
 
 public class PackageList {
   private Application application;
@@ -71,12 +77,15 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
       new RNCMaskedViewPackage(),
+      new RNCProgressViewPackage(),
       new RNGestureHandlerPackage(),
       new RNPaypalPackage(),
+      new RCTPdfView(),
       new SafeAreaContextPackage(),
       new RNScreensPackage(),
       new VectorIconsPackage(),
-      new RNCWebViewPackage()
+      new RNCWebViewPackage(),
+      new RNFetchBlobPackage()
     ));
   }
 }

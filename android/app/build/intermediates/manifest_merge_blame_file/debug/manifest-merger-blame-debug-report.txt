@@ -14,134 +14,168 @@
 12    <uses-permission android:name="android.permission.INTERNET" />
 12-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:4:5-67
 12-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:4:22-64
-13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Required to access Google Play Licensing -->
 13-->[com.facebook.flipper:flipper:0.54.0] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\210d84f031edf0e9aab778cbe9b9e5fe\flipper-0.54.0\AndroidManifest.xml:16:5-76
 13-->[com.facebook.flipper:flipper:0.54.0] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\210d84f031edf0e9aab778cbe9b9e5fe\flipper-0.54.0\AndroidManifest.xml:16:22-73
-14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-14-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:13:5-79
-14-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:13:22-76
-15
-16    <queries>
-16-->[com.braintreepayments:browser-switch:1.1.2] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\1d2c9b6744aa5a456958c24aa10a2718\browser-switch-1.1.2\AndroidManifest.xml:11:5-19:15
-17        <intent>
-17-->[com.braintreepayments:browser-switch:1.1.2] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\1d2c9b6744aa5a456958c24aa10a2718\browser-switch-1.1.2\AndroidManifest.xml:12:9-18:18
-18            <action android:name="android.intent.action.VIEW" />
-18-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-69
-18-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:25-66
-19
-20            <category android:name="android.intent.category.BROWSABLE" />
-20-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:17-78
-20-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:27-75
-21
-22            <data android:scheme="https" />
-22-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:17-69
-22-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:23-66
-23        </intent>
-24    </queries>
-25
-26    <application
-26-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:6:5-25:19
-27        android:name="com.nda.MainApplication"
-27-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:7:7-38
-28        android:allowBackup="false"
-28-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:11:7-34
-29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-29-->[androidx.core:core:1.1.0] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\48016a7700d8ebb905fa3286bbfc259a\core-1.1.0\AndroidManifest.xml:24:18-86
-30        android:debuggable="true"
-31        android:icon="@mipmap/ic_launcher"
-31-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:9:7-41
-32        android:label="@string/app_name"
-32-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:8:7-39
-33        android:roundIcon="@mipmap/ic_launcher_round"
-33-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:10:7-52
-34        android:theme="@style/AppTheme"
-34-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:12:7-38
-35        android:usesCleartextTraffic="true" >
-35-->C:\Users\terra\Desktop\NDAapp\android\app\src\debug\AndroidManifest.xml:7:18-53
-36        <activity
-36-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:13:7-23:18
-37            android:name="com.nda.MainActivity"
-37-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:14:9-37
-38            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
-38-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:16:9-86
-39            android:label="@string/app_name"
-39-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:15:9-41
-40            android:launchMode="singleTask"
-40-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:17:9-40
-41            android:windowSoftInputMode="adjustResize" >
-41-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:18:9-51
-42            <intent-filter>
-42-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:19:9-22:25
-43                <action android:name="android.intent.action.MAIN" />
-43-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:20:13-65
-43-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:20:21-62
-44
-45                <category android:name="android.intent.category.LAUNCHER" />
-45-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:21:13-73
-45-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:21:23-70
-46            </intent-filter>
-47        </activity>
-48        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-48-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:24:7-84
-48-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:24:17-81
-49        <activity
-49-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:9-26:20
-50            android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
-50-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-84
+14    <uses-permission android:name="com.android.vending.CHECK_LICENSE" />
+14-->[:rn-fetch-blob] C:\Users\terra\Desktop\NDAapp\node_modules\rn-fetch-blob\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-73
+14-->[:rn-fetch-blob] C:\Users\terra\Desktop\NDAapp\node_modules\rn-fetch-blob\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:22-70
+15    <!--
+16         Required to keep CPU alive while downloading files
+17        (NOT to keep screen awake)
+18    -->
+19    <uses-permission android:name="android.permission.WAKE_LOCK" />
+19-->[:rn-fetch-blob] C:\Users\terra\Desktop\NDAapp\node_modules\rn-fetch-blob\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:5-68
+19-->[:rn-fetch-blob] C:\Users\terra\Desktop\NDAapp\node_modules\rn-fetch-blob\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:22-65
+20    <!--
+21         Required to poll the state of the network connection
+22        and respond to changes
+23    -->
+24    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Required to read and write the expansion files on shared storage -->
+24-->[:rn-fetch-blob] C:\Users\terra\Desktop\NDAapp\node_modules\rn-fetch-blob\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:27:5-79
+24-->[:rn-fetch-blob] C:\Users\terra\Desktop\NDAapp\node_modules\rn-fetch-blob\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:27:22-76
+25    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+25-->[:rn-fetch-blob] C:\Users\terra\Desktop\NDAapp\node_modules\rn-fetch-blob\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:33:5-81
+25-->[:rn-fetch-blob] C:\Users\terra\Desktop\NDAapp\node_modules\rn-fetch-blob\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:33:22-78
+26
+27    <queries>
+27-->[com.braintreepayments:browser-switch:1.1.2] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\1d2c9b6744aa5a456958c24aa10a2718\browser-switch-1.1.2\AndroidManifest.xml:11:5-19:15
+28        <intent>
+28-->[com.braintreepayments:browser-switch:1.1.2] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\1d2c9b6744aa5a456958c24aa10a2718\browser-switch-1.1.2\AndroidManifest.xml:12:9-18:18
+29            <action android:name="android.intent.action.VIEW" />
+29-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-69
+29-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:25-66
+30
+31            <category android:name="android.intent.category.BROWSABLE" />
+31-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:17-78
+31-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:27-75
+32
+33            <data android:scheme="https" />
+33-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:17-69
+33-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:23-66
+34        </intent>
+35    </queries>
+36
+37    <application
+37-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:6:5-25:19
+38        android:name="com.nda.MainApplication"
+38-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:7:7-38
+39        android:allowBackup="false"
+39-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:11:7-34
+40        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+40-->[androidx.core:core:1.3.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\24001c07dac3d0ede16826bf3b1d3e15\core-1.3.1\AndroidManifest.xml:24:18-86
+41        android:debuggable="true"
+42        android:icon="@mipmap/ic_launcher"
+42-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:9:7-41
+43        android:label="@string/app_name"
+43-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:8:7-39
+44        android:roundIcon="@mipmap/ic_launcher_round"
+44-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:10:7-52
+45        android:theme="@style/AppTheme"
+45-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:12:7-38
+46        android:usesCleartextTraffic="true" >
+46-->C:\Users\terra\Desktop\NDAapp\android\app\src\debug\AndroidManifest.xml:7:18-53
+47        <activity
+47-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:13:7-23:18
+48            android:name="com.nda.MainActivity"
+48-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:14:9-37
+49            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+49-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:16:9-86
+50            android:label="@string/app_name"
+50-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:15:9-41
 51            android:launchMode="singleTask"
-51-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-44
-52            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-52-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-72
+51-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:17:9-40
+52            android:windowSoftInputMode="adjustResize" >
+52-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:18:9-51
 53            <intent-filter>
-53-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-25:29
-54                <action android:name="android.intent.action.VIEW" />
-54-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-69
-54-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:25-66
+53-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:19:9-22:25
+54                <action android:name="android.intent.action.MAIN" />
+54-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:20:13-65
+54-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:20:21-62
 55
-56                <category android:name="android.intent.category.DEFAULT" />
-56-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:17-76
-56-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:27-73
-57                <category android:name="android.intent.category.BROWSABLE" />
-57-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:17-78
-57-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:27-75
-58
-59                <data android:scheme="com.nda.braintree" />
-59-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:17-69
-59-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:23-66
-60            </intent-filter>
-61        </activity>
-62
-63        <provider
-63-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-20:20
-64            android:name="com.reactnativecommunity.webview.RNCWebViewFileProvider"
-64-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-83
-65            android:authorities="com.nda.fileprovider"
-65-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-64
-66            android:exported="false"
-66-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
-67            android:grantUriPermissions="true" >
-67-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-47
-68            <meta-data
-68-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-19:63
-69                android:name="android.support.FILE_PROVIDER_PATHS"
-69-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-67
-70                android:resource="@xml/file_provider_paths" />
-70-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-60
-71        </provider>
-72
-73        <service android:name="com.braintreepayments.api.internal.AnalyticsIntentService" />
-73-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:17:9-93
-73-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:17:18-90
-74
-75        <activity android:name="com.braintreepayments.api.ThreeDSecureActivity" />
-75-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:19:9-83
-75-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:19:19-80
-76        <activity
-76-->[com.braintreepayments.api:google-payment:3.3.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\5146e4f1001ae25f0cbd05f4f4b1246f\jetified-google-payment-3.3.1\AndroidManifest.xml:12:9-14:62
-77            android:name="com.braintreepayments.api.GooglePaymentActivity"
-77-->[com.braintreepayments.api:google-payment:3.3.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\5146e4f1001ae25f0cbd05f4f4b1246f\jetified-google-payment-3.3.1\AndroidManifest.xml:13:13-75
-78            android:theme="@style/bt_transparent_activity" />
-78-->[com.braintreepayments.api:google-payment:3.3.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\5146e4f1001ae25f0cbd05f4f4b1246f\jetified-google-payment-3.3.1\AndroidManifest.xml:14:13-59
-79    </application>
-80
-81</manifest>
+56                <category android:name="android.intent.category.LAUNCHER" />
+56-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:21:13-73
+56-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:21:23-70
+57            </intent-filter>
+58        </activity>
+59        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+59-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:24:7-84
+59-->C:\Users\terra\Desktop\NDAapp\android\app\src\main\AndroidManifest.xml:24:17-81
+60        <activity
+60-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:9-26:20
+61            android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
+61-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-84
+62            android:launchMode="singleTask"
+62-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-44
+63            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+63-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-72
+64            <intent-filter>
+64-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-25:29
+65                <action android:name="android.intent.action.VIEW" />
+65-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-69
+65-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:25-66
+66
+67                <category android:name="android.intent.category.DEFAULT" />
+67-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:17-76
+67-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:27-73
+68                <category android:name="android.intent.category.BROWSABLE" />
+68-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:17-78
+68-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:27-75
+69
+70                <data android:scheme="com.nda.braintree" />
+70-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:17-69
+70-->[:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:23-66
+71            </intent-filter>
+72        </activity>
+73
+74        <provider
+74-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-20:20
+75            android:name="com.reactnativecommunity.webview.RNCWebViewFileProvider"
+75-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-83
+76            android:authorities="com.nda.fileprovider"
+76-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-64
+77            android:exported="false"
+77-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
+78            android:grantUriPermissions="true" >
+78-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-47
+79            <meta-data
+79-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-19:63
+80                android:name="android.support.FILE_PROVIDER_PATHS"
+80-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-67
+81                android:resource="@xml/file_provider_paths" />
+81-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-60
+82        </provider>
+83        <provider
+83-->[:rn-fetch-blob] C:\Users\terra\Desktop\NDAapp\node_modules\rn-fetch-blob\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:36:9-44:20
+84            android:name="com.RNFetchBlob.Utils.FileProvider"
+84-->[:rn-fetch-blob] C:\Users\terra\Desktop\NDAapp\node_modules\rn-fetch-blob\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:37:13-62
+85            android:authorities="com.nda.provider"
+85-->[:rn-fetch-blob] C:\Users\terra\Desktop\NDAapp\node_modules\rn-fetch-blob\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:38:13-60
+86            android:exported="false"
+86-->[:rn-fetch-blob] C:\Users\terra\Desktop\NDAapp\node_modules\rn-fetch-blob\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:39:13-37
+87            android:grantUriPermissions="true" >
+87-->[:rn-fetch-blob] C:\Users\terra\Desktop\NDAapp\node_modules\rn-fetch-blob\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:40:13-47
+88            <meta-data
+88-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-19:63
+89                android:name="android.support.FILE_PROVIDER_PATHS"
+89-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-67
+90                android:resource="@xml/provider_paths" />
+90-->[:react-native-webview] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-webview\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-60
+91        </provider>
+92
+93        <service android:name="com.braintreepayments.api.internal.AnalyticsIntentService" />
+93-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:17:9-93
+93-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:17:18-90
+94
+95        <activity android:name="com.braintreepayments.api.ThreeDSecureActivity" />
+95-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:19:9-83
+95-->[com.braintreepayments.api:braintree:3.14.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\15189c64f1d9a66f1055e71471ded833\jetified-braintree-3.14.1\AndroidManifest.xml:19:19-80
+96        <activity
+96-->[com.braintreepayments.api:google-payment:3.3.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\5146e4f1001ae25f0cbd05f4f4b1246f\jetified-google-payment-3.3.1\AndroidManifest.xml:12:9-14:62
+97            android:name="com.braintreepayments.api.GooglePaymentActivity"
+97-->[com.braintreepayments.api:google-payment:3.3.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\5146e4f1001ae25f0cbd05f4f4b1246f\jetified-google-payment-3.3.1\AndroidManifest.xml:13:13-75
+98            android:theme="@style/bt_transparent_activity" />
+98-->[com.braintreepayments.api:google-payment:3.3.1] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\5146e4f1001ae25f0cbd05f4f4b1246f\jetified-google-payment-3.3.1\AndroidManifest.xml:14:13-59
+99    </application>
+100
+101</manifest>
