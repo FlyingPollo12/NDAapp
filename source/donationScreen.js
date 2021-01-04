@@ -59,6 +59,9 @@ export default class newPage extends Component {
 					onBackdropPress={() => this.toggleModal()}
 				>
 					<WebView
+						scalesPageToFit={true}
+						scrollEnabled={false}
+						cacheEnabled={false}
 						style={styles.webview}
 						ref={webView => (this.webView = webView)}
 						source={{ uri: "https://slashsolutions.co/NDApaypal/" }}
@@ -69,11 +72,9 @@ export default class newPage extends Component {
 				</Modal>
 				<Header callBack={this.headerCallBack}/>
 				<View style={styles.body}>
-					<View style={styles.counterContainer}>
 						<Text style={styles.counterText}>We have raised</Text>
+						<View style={styles.line}/>
 						<Text style={styles.counterNumber}>${this.state.totalRaised}</Text>
-					</View>
-					<Text style={styles.text}>All donations will go towards .... We appreciate everything you do for this community!</Text>
 					{/*}<Image
 						style={styles.bodyImage}
 						source={require('./images/pdfsplit/Booklet_7-7-1.png')}
@@ -101,6 +102,9 @@ export default class newPage extends Component {
 	headerCallBack = (msg) => {
 		if (msg == "donationScreen") {
 			this.props.navigation.navigate("donationScreen");
+		}
+		else if (msg == "homeScreen") {
+			this.props.navigation.popToTop();
 		}
 		else if (msg == "parentScreen") {
 			this.props.navigation.navigate("parentScreen");
@@ -135,7 +139,7 @@ const styles = StyleSheet.create({
 	body: {
 		marginTop: 50,
 		flex: 2,
-		justifyContent: 'space-evenly',
+		justifyContent: 'center',
 	},
 	menuIcon: {
 		marginLeft: 10,
@@ -151,7 +155,7 @@ const styles = StyleSheet.create({
 		padding: 0,
 		marginLeft: 0,
 		width: WIDTH,
-		height: HEIGHT * 0.86,
+		height: HEIGHT * 0.9,
 	},
 	bodyImage: {
 		marginTop: 20,
@@ -168,18 +172,21 @@ const styles = StyleSheet.create({
 	counterContainer: {
 		flexDirection: 'column',
 		justifyContent: 'center',
-		marginRight: 30,
-		marginLeft: 30,
-		borderWidth: 2,
 	},
 	counterText: {
-		backgroundColor: COLORS.NDA_GREEN,
+		color: COLORS.NDA_GREEN,
 		fontSize: 40,
-		padding: 15,
+		padding: 8,
+		fontFamily: 'Graduate-Regular',
 		textAlign: 'center',
 	},
+	line: {
+	},
 	counterNumber: {
-		padding: 20,
+		borderWidth: 2,
+		marginLeft: 20,
+		marginRight: 20,
+		padding: 0,
 		textAlign: 'center',
 		fontSize: 60,
 		fontFamily: 'StardosStencil-Regular',

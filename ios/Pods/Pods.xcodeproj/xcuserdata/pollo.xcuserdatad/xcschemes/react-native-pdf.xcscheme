@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DC288C7344F3D54E67D3CA230761831C"
-               BuildableName = "libRNPDF.a"
-               BlueprintName = "RNPDF"
+               BlueprintIdentifier = "951971F966B90DEAB7D250D9C65A8AC1"
+               BuildableName = "libreact-native-pdf.a"
+               BlueprintName = "react-native-pdf"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

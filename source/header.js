@@ -36,7 +36,7 @@ export default class Header extends Component {
                                 onBackdropPress={this.toggleSideMenu}
                                 onSwipeComplete={this.toggleSideMenu}
                                 animationIn="slideInLeft" 
-                                animationOut="slideOutLeft" 
+                                animationOut="slideOutLeft"
                                 swipeDirection="left"
                                 style={styles.sideMenuStyle}
                         	>
@@ -81,6 +81,9 @@ export default class Header extends Component {
 	
 	parentFunction = (msg) => {
 		if (msg == "donationScreen") {
+			this.toggleSideMenu();
+		}
+		else if (msg == "homeScreen") {
 			this.toggleSideMenu();
 		}
 		else if (msg == "parentScreen") {

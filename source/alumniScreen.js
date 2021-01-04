@@ -106,6 +106,9 @@ export default class alumni extends React.Component {
 		if (msg == "donationScreen") {
 			this.props.navigation.navigate("donationScreen");
 		}
+		else if (msg == "homeScreen") {
+			this.props.navigation.popToTop();
+		}
 		else if (msg == "parentScreen") {
 			this.props.navigation.navigate("parentScreen");
 		}
