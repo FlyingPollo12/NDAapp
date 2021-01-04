@@ -193,6 +193,9 @@ const styles = StyleSheet.create({
     taskBtn: {
         justifyContent: 'center',
         backgroundColor: COLORS.NDA_BLUE,
+        elevation: 10,
+        shadowColor: COLORS.BLACK,
+        shadowOpacity: 1,
         marginLeft: 15,
         marginRight: 15,
         borderRadius: 12,

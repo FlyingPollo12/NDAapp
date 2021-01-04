@@ -17,7 +17,6 @@ import SideMenu from './sideMenu.js';
 import Card from './shared/Card.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import * as rssParser from 'react-native-rss-parser';
-import LoafingScreen from './LoafingScreen.js';
 import _ from "lodash";
 
 Icon.loadFont();
@@ -52,17 +51,7 @@ export default class mainScreen extends Component {
     
 	render() {
         console.log("...inRender");
-        if (this.state.loading) return ( <Text>Loading...</Text>
-        //if (this.state.loading) return (
-        //    <Modal
-        //        isVisible={this.state.loading}
-        //        animationIn="fade"
-        //        animationOut="fade">
-        //        <LoafingScreen></LoafingScreen>  
-        //    </Modal>
-
-        )
-        
+        if (this.state.loading) return (null)
 		return 	(
             <SafeAreaView>
                 <ScrollView>
@@ -90,7 +79,8 @@ export default class mainScreen extends Component {
                         </View>
                         <Image
                                 style={styles.logo}
-                                source={require('./images/NDA_LOGO_V.png')} />
+                                source={require('./images/NDA_LOGO_V.png')}
+                        />
                     </View>
                     
                     <Text style = {styles.text}>Where faith and education come together in a Vibrant Growing Community</Text>
