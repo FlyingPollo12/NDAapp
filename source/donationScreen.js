@@ -183,7 +183,6 @@ const styles = StyleSheet.create({
 	line: {
 	},
 	counterNumber: {
-		borderWidth: 2,
 		marginLeft: 20,
 		marginRight: 20,
 		padding: 0,

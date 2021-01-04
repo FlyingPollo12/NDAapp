@@ -127,7 +127,7 @@ export default class alumni extends React.Component {
              this.setState(prevState => ({ showHOF: !prevState.showHOF }));
     }
     
-    headerCallBack(msg) {
+    headerCallBack = (msg) => {
 		if (msg == "donationScreen") {
 			this.props.navigation.navigate("donationScreen");
 		}

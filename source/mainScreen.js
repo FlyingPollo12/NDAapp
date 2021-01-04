@@ -52,16 +52,8 @@ export default class mainScreen extends Component {
     
 	render() {
         console.log("...inRender");
-        if (this.state.loading) return ( <Text>Loading...</Text>
-        //if (this.state.loading) return (
-        //    <Modal
-        //        isVisible={this.state.loading}
-        //        animationIn="fade"
-        //        animationOut="fade">
-        //        <LoafingScreen></LoafingScreen>  
-        //    </Modal>
-
-        )
+        if (this.state.loading) 
+        	return ( <Text>Loading...</Text>	)
         
 		return 	(
             <SafeAreaView>
