@@ -17,6 +17,7 @@ import SideMenu from './sideMenu.js';
 import Card from './shared/Card.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import * as rssParser from 'react-native-rss-parser';
+import LoafingScreen from './LoafingScreen.js';
 import _ from "lodash";
 
 Icon.loadFont();
@@ -51,19 +52,27 @@ export default class mainScreen extends Component {
     
 	render() {
         console.log("...inRender");
-        if (this.state.loading) return <Text>Loading.....</Text>
+        if (this.state.loading) return ( <Text>Loading...</Text>
+        //if (this.state.loading) return (
+        //    <Modal
+        //        isVisible={this.state.loading}
+        //        animationIn="fade"
+        //        animationOut="fade">
+        //        <LoafingScreen></LoafingScreen>  
+        //    </Modal>
+
+        )
+        
 		return 	(
             <SafeAreaView>
-            		<ScrollView>
+                <ScrollView>
                     {/*SideMenu*/}
                     <Modal
                         isVisible={this.state.isSideMenuVisible}
-                                onBackdropPress={this.toggleSideMenu}
-                                onSwipeComplete={this.toggleSideMenu}
-                                animationIn="slideInLeft"
-                                animationOut="slideOutLeft"
-                                swipeDirection="left"
-                                style={styles.sideMenuStyle}>
+                        animationIn="slideInLeft"
+                        animationOut="slideOutLeft"
+                        swipeDirection="left"
+                        style={styles.sideMenuStyle}>
                         <SideMenu parentFunction={this.parentFunction}/>
                     </Modal>
                     {/*End Side Menu*/}
@@ -71,97 +80,96 @@ export default class mainScreen extends Component {
                     <View style={styles.header}>
                         <View style={styles.iconContainer}>
                         <Icon.Button
-                        		style={styles.icon}
-                            	name="bars"
-                            	size={60} 
-                            	color={COLORS.WHITE}
-                            	backgroundColor={COLORS.NDA_BLUE}
-                            	onPress={()=> this.toggleSideMenu()} 
+                            style={styles.icon}
+                            name="bars"
+                            size={60} 
+                            color={COLORS.WHITE}
+                            backgroundColor={COLORS.NDA_BLUE}
+                            onPress={()=> this.toggleSideMenu()} 
                         />
                         </View>
-                    	<Image
-                        		style={styles.logo}
-                        		source={require('./images/NDA_LOGO_V.png')}
-                        	/>
+                        <Image
+                                style={styles.logo}
+                                source={require('./images/NDA_LOGO_V.png')} />
                     </View>
+                    
                     <Text style = {styles.text}>Where faith and education come together in a Vibrant Growing Community</Text>
                     {/*Give us your money, we will use it for the children. All of the children.*/}
                     {/*End Hamburger Button*/}
-                    
+
                     {/*News Feed*/}
                     <View>
                         <View style={styles.h_divider}/>
                         <Text style={styles.TTT_Text}>The Triton Times</Text>
                         <View style={styles.h_divider}/>
-                        
-                            <Card>
-                                <Text style={styles.newsHeadline} >{this.state.NDA_news[0].title}</Text>
-                                <Image
-                                    style={styles.newsImage}
-                                    source={{
-                                        uri: this.state.NDA_news[0].enclosures[0].url,
-                                        }}
-                                    />
-                                <Text style={styles.newsBody}>{this.state.NDA_news[0].description.trim()}</Text>
-                                <Text style={{marginLeft: 15, fontSize: 16, fontFamily: 'Spectral-Light',}}>Read more:</Text>
-                                <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[0].links[0].url)}>Source</Text>
-                            </Card>
-                        
-                            <Card>
-                                <Text style={styles.newsHeadline} >{this.state.NDA_news[1].title}</Text>
-                                <Image
-                                    style={styles.newsImage}
-                                    source={{
-                                        uri: this.state.NDA_news[1].enclosures[0].url,
-                                        }}
-                                    />
-                                <Text style={styles.newsBody}>{this.state.NDA_news[1].description.trim()}</Text>
-                                <Text style={{marginLeft: 15, fontSize: 16, fontFamily: 'Spectral-Light',}}>Read more:</Text>
-                                <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[1].links[0].url)}>Source</Text>
-                            </Card>
-                        
-                            <Card>
-                                <Text style={styles.newsHeadline} >{this.state.NDA_news[2].title}</Text>
-                                <Image
-                                    style={styles.newsImage}
-                                    source={{
-                                        uri: this.state.NDA_news[2].enclosures[0].url,
-                                        }}
-                                    />
-                                <Text style={styles.newsBody}>{this.state.NDA_news[2].description.trim()}</Text>
-                                <Text style={{marginLeft: 15, fontSize: 16, fontFamily: 'Spectral-Light',}}>Read more:</Text>
-                                <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[2].links[0].url)}>Source</Text>
-                            </Card>
-                        
-                            <Card>
-                                <Text style={styles.newsHeadline} >{this.state.NDA_news[3].title}</Text>
-                                <Image
-                                    style={styles.newsImage}
-                                    source={{
-                                        uri: this.state.NDA_news[3].enclosures[0].url,
-                                        }}
-                                    />
-                                <Text style={styles.newsBody}>{this.state.NDA_news[3].description.trim()}</Text>
-                                <Text style={{marginLeft: 15, fontSize: 16, fontFamily: 'Spectral-Light',}}>Read more:</Text>
-                                <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[3].links[0].url)}>Source</Text>
-                            </Card>
-                        
-                            <Card>
-                                <Text style={styles.newsHeadline} >{this.state.NDA_news[4].title}</Text>
-                                <Image
-                                    style={styles.newsImage}
-                                    source={{
-                                        uri: this.state.NDA_news[4].enclosures[0].url,
-                                        }}
-                                    />
-                                <Text style={styles.newsBody}>{this.state.NDA_news[4].description.trim()}</Text>
-                                <Text style={{marginLeft: 15, fontSize: 16, fontFamily: 'Spectral-Light',}}>Read more:</Text>
-                                <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[4].links[0].url)}>Source</Text>
-                            </Card>
-                        
+
+                        <Card>
+                            <Text style={styles.newsHeadline} >{this.state.NDA_news[0].title}</Text>
+                            <Image
+                                style={styles.newsImage}
+                                source={{
+                                    uri: this.state.NDA_news[0].enclosures[0].url,
+                                    }}
+                                />
+                            <Text style={styles.newsBody}>{this.state.NDA_news[0].description.trim()}</Text>
+                            <Text style={{marginLeft: 15, fontSize: 16, fontFamily: 'Spectral-Light',}}>Read more:</Text>
+                            <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[0].links[0].url)}>Source</Text>
+                        </Card>
+
+                        <Card>
+                            <Text style={styles.newsHeadline} >{this.state.NDA_news[1].title}</Text>
+                            <Image
+                                style={styles.newsImage}
+                                source={{
+                                    uri: this.state.NDA_news[1].enclosures[0].url,
+                                    }}
+                                />
+                            <Text style={styles.newsBody}>{this.state.NDA_news[1].description.trim()}</Text>
+                            <Text style={{marginLeft: 15, fontSize: 16, fontFamily: 'Spectral-Light',}}>Read more:</Text>
+                            <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[1].links[0].url)}>Source</Text>
+                        </Card>
+
+                        <Card>
+                            <Text style={styles.newsHeadline} >{this.state.NDA_news[2].title}</Text>
+                            <Image
+                                style={styles.newsImage}
+                                source={{
+                                    uri: this.state.NDA_news[2].enclosures[0].url,
+                                    }}
+                                />
+                            <Text style={styles.newsBody}>{this.state.NDA_news[2].description.trim()}</Text>
+                            <Text style={{marginLeft: 15, fontSize: 16, fontFamily: 'Spectral-Light',}}>Read more:</Text>
+                            <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[2].links[0].url)}>Source</Text>
+                        </Card>
+
+                        <Card>
+                            <Text style={styles.newsHeadline} >{this.state.NDA_news[3].title}</Text>
+                            <Image
+                                style={styles.newsImage}
+                                source={{
+                                    uri: this.state.NDA_news[3].enclosures[0].url,
+                                    }}
+                                />
+                            <Text style={styles.newsBody}>{this.state.NDA_news[3].description.trim()}</Text>
+                            <Text style={{marginLeft: 15, fontSize: 16, fontFamily: 'Spectral-Light',}}>Read more:</Text>
+                            <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[3].links[0].url)}>Source</Text>
+                        </Card>
+
+                        <Card>
+                            <Text style={styles.newsHeadline} >{this.state.NDA_news[4].title}</Text>
+                            <Image
+                                style={styles.newsImage}
+                                source={{
+                                    uri: this.state.NDA_news[4].enclosures[0].url,
+                                    }}
+                                />
+                            <Text style={styles.newsBody}>{this.state.NDA_news[4].description.trim()}</Text>
+                            <Text style={{marginLeft: 15, fontSize: 16, fontFamily: 'Spectral-Light',}}>Read more:</Text>
+                            <Text style={styles.newsLink} onPress={() => Linking.openURL(this.state.NDA_news[4].links[0].url)}>Source</Text>
+                        </Card>
                     </View>
                 </ScrollView>
-            </SafeAreaView>
+        </SafeAreaView>
 		);
 	}
 	
@@ -240,7 +248,7 @@ const styles = StyleSheet.create({
         paddingRight: 40,
         marginBottom: 10,
     },
-     h_divider: {
+    h_divider: {
         borderBottomColor: COLORS.NDA_GREEN,
         borderBottomWidth: 5,
         width: WIDTH,

@@ -20,13 +20,11 @@ export default class Header extends Component {
 		super(props);
 		
 		this.state = {
-			title: this.props.title,
 			menuVisible: false,
 		}
 	}
 	
 	callBack = (msg) => this.props.callBack(msg);
-	
 	
 	render() {
 		return (
@@ -62,7 +60,6 @@ export default class Header extends Component {
 		)
 	}
 	
-	
 	renderTitle() {
 		if (this.state.title != null) {
 			return (
@@ -73,11 +70,9 @@ export default class Header extends Component {
 		}
 	}
 	
-	
 	toggleSideMenu = () => {
 		this.setState({ menuVisible: !this.state.menuVisible });
 	}
-	
 	
 	parentFunction = (msg) => {
 		if (msg == "donationScreen") {
@@ -102,8 +97,6 @@ export default class Header extends Component {
 	}
 }
 
-
-
 const styles = StyleSheet.create({
 	sideMenuStyle: {
 		position: 'absolute',
@@ -115,7 +108,7 @@ const styles = StyleSheet.create({
 	},
 	header: {
 		backgroundColor: COLORS.NDA_BLUE,
-        	height: HEIGHT * .15,
+        height: HEIGHT * .15,
 		flexDirection: 'column-reverse',
 		marginBottom: 0,
 	},
@@ -137,10 +130,10 @@ const styles = StyleSheet.create({
 	},
 	logo: {
 		position: 'absolute',
-        	width: WIDTH * .35,
-        	left: WIDTH * .325,
-        	height: WIDTH * .35,
-        	top: 0,
-        	zIndex: 1,
+        width: WIDTH * .35,
+        left: WIDTH * .325,
+        height: WIDTH * .35,
+        top: 0,
+        zIndex: 1,
     	},
 })
