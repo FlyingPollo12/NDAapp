@@ -107,8 +107,9 @@ const styles = StyleSheet.create({
         	backgroundColor: COLORS.NDA_GREEN,
 	},
 	header: {
+		zIndex: 10,
 		backgroundColor: COLORS.NDA_BLUE,
-        height: HEIGHT * .15,
+        	height: HEIGHT * .15,
 		flexDirection: 'column-reverse',
 		marginBottom: 0,
 	},

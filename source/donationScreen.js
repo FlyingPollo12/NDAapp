@@ -71,10 +71,15 @@ export default class newPage extends Component {
 					/>
 				</Modal>
 				<Header callBack={this.headerCallBack}/>
+				<Image
+					style={styles.backgroundImage}
+					source={require('./Images/cross_image_adjusted.png')}
+				/>
 				<View style={styles.body}>
+					<View style={styles.counterContainer}>
 						<Text style={styles.counterText}>We have raised</Text>
-						<View style={styles.line}/>
 						<Text style={styles.counterNumber}>${this.state.totalRaised}</Text>
+					</View>
 					{/*}<Image
 						style={styles.bodyImage}
 						source={require('./images/pdfsplit/Booklet_7-7-1.png')}
@@ -136,10 +141,18 @@ const styles = StyleSheet.create({
 		width: WIDTH,
 		flexDirection: 'column',
 	},
+	backgroundImage: {
+		position: 'absolute',
+		top: HEIGHT * 0.2,
+		left: 0,
+		width: WIDTH,
+		height: HEIGHT * 0.6,
+		opacity: 0.7,
+	},
 	body: {
 		marginTop: 50,
 		flex: 2,
-		justifyContent: 'center',
+		justifyContent: 'flex-end',
 	},
 	menuIcon: {
 		marginLeft: 10,
@@ -171,7 +184,7 @@ const styles = StyleSheet.create({
 	},
 	counterContainer: {
 		flexDirection: 'column',
-		justifyContent: 'center',
+		backgroundColor: 'rgba(52,52,52,0.5)',
 	},
 	counterText: {
 		color: COLORS.NDA_GREEN,
@@ -180,13 +193,11 @@ const styles = StyleSheet.create({
 		fontFamily: 'Graduate-Regular',
 		textAlign: 'center',
 	},
-	line: {
-	},
 	counterNumber: {
-		borderWidth: 2,
 		marginLeft: 20,
 		marginRight: 20,
 		padding: 0,
+		color: 'black',
 		textAlign: 'center',
 		fontSize: 60,
 		fontFamily: 'StardosStencil-Regular',
