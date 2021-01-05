@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 // @react-native-community/masked-view
 import org.reactnative.maskedview.RNCMaskedViewPackage;
+// @react-native-community/progress-bar-android
+import com.reactnativecommunity.androidprogressbar.RNCProgressBarPackage;
 // @react-native-community/progress-view
 import com.reactnativecommunity.progressview.RNCProgressViewPackage;
 // react-native-gesture-handler
@@ -77,6 +79,7 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
       new RNCMaskedViewPackage(),
+      new RNCProgressBarPackage(),
       new RNCProgressViewPackage(),
       new RNGestureHandlerPackage(),
       new RNPaypalPackage(),

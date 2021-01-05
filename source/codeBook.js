@@ -11,7 +11,7 @@ import Pdf from 'react-native-pdf';
 import {COLORS} from './colors.js';
 
 
-const codebookRequire = require('./fonts/Handbook.pdf');
+const codebookRequire = {uri: "bundle-assets://Handbook.pdf"}
 
 export default class CodeBook extends Component {
 	callBack = (msg) => this.props.callBack(msg);

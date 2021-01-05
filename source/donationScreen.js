@@ -134,7 +134,6 @@ export default class newPage extends Component {
 	}
 }
 
-
 const styles = StyleSheet.create({
 	page: {
 		height: HEIGHT,
@@ -143,7 +142,7 @@ const styles = StyleSheet.create({
 	},
 	backgroundImage: {
 		position: 'absolute',
-		top: HEIGHT * 0.2,
+		top: HEIGHT * 0.15,
 		left: 0,
 		width: WIDTH,
 		height: HEIGHT * 0.6,
@@ -177,7 +176,7 @@ const styles = StyleSheet.create({
 	},
 	text: {
 		textAlign: 'center',
-        	fontFamily: 'Lora-Regular',
+        fontFamily: 'Lora-Regular',
 		fontSize: 18,
 		paddingRight: 20,
 		paddingLeft: 20,

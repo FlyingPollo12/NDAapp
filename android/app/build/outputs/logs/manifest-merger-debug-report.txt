@@ -9,6 +9,7 @@ MERGED from [com.facebook.flipper:flipper:0.54.0] C:\Users\terra\.gradle\caches\
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.54.0] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\3d589d3d483ebc85dc77d80da91d22f6\flipper-network-plugin-0.54.0\AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.54.0] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\8d9a08b01ddf659328b8587cb1d6e3ed\flipper-fresco-plugin-0.54.0\AndroidManifest.xml:8:1-15:12
 MERGED from [:react-native-community_masked-view] C:\Users\terra\Desktop\NDAapp\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-community_progress-bar-android] C:\Users\terra\Desktop\NDAapp\node_modules\@react-native-community\progress-bar-android\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-community_progress-view] C:\Users\terra\Desktop\NDAapp\node_modules\@react-native-community\progress-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-gesture-handler] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-paypal] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-paypal\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-29:12
@@ -197,6 +198,8 @@ MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.54.0] C:\Users\terra\.
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.54.0] C:\Users\terra\.gradle\caches\transforms-2\files-2.1\8d9a08b01ddf659328b8587cb1d6e3ed\flipper-fresco-plugin-0.54.0\AndroidManifest.xml:11:5-13:41
 MERGED from [:react-native-community_masked-view] C:\Users\terra\Desktop\NDAapp\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-community_masked-view] C:\Users\terra\Desktop\NDAapp\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_progress-bar-android] C:\Users\terra\Desktop\NDAapp\node_modules\@react-native-community\progress-bar-android\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-community_progress-bar-android] C:\Users\terra\Desktop\NDAapp\node_modules\@react-native-community\progress-bar-android\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-community_progress-view] C:\Users\terra\Desktop\NDAapp\node_modules\@react-native-community\progress-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-community_progress-view] C:\Users\terra\Desktop\NDAapp\node_modules\@react-native-community\progress-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] C:\Users\terra\Desktop\NDAapp\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
