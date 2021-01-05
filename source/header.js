@@ -18,7 +18,7 @@ const WIDTH = Dimensions.get('window').width;
 export default class Header extends Component {
 	constructor(props: Props) {
 		super(props);
-		
+		console.log("header says height = " + HEIGHT);
 		this.state = {
 			menuVisible: false,
 		}
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
 		backgroundColor: COLORS.NDA_BLUE,
         	height: HEIGHT * .15,
 		flexDirection: 'column-reverse',
-		marginBottom: 0,
+		margin: 0,
 	},
 	headerText: {
 		margin: 5,
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
         width: WIDTH * .35,
         left: WIDTH * .325,
         height: WIDTH * .35,
-        top: 0,
+        top: -12,
         zIndex: 1,
     	},
 })

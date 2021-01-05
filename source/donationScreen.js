@@ -25,6 +25,7 @@ let WIDTH = Dimensions.get("window").width;
 export default class newPage extends Component {
 	constructor(props: Props) {
 		super(props);
+		console.log("donation screen says height = " + HEIGHT);
 		this.state={
 			amount: "0.00",
 			showModal: false, //for webview
@@ -80,11 +81,6 @@ export default class newPage extends Component {
 						<Text style={styles.counterText}>We have raised</Text>
 						<Text style={styles.counterNumber}>${this.state.totalRaised}</Text>
 					</View>
-					{/*}<Image
-						style={styles.bodyImage}
-						source={require('./images/pdfsplit/Booklet_7-7-1.png')}
-						resizeMode={'contain'}
-				 	/>*/}
 				</View>
 				<View style={styles.footer}>
 					<TouchableOpacity style={styles.button} onPress={() => this.processPayment()}>
@@ -143,7 +139,7 @@ const styles = StyleSheet.create({
 	},
 	backgroundImage: {
 		position: 'absolute',
-		top: HEIGHT * 0.2,
+		top: HEIGHT * 0.15,
 		left: 0,
 		width: WIDTH,
 		height: HEIGHT * 0.6,
@@ -184,7 +180,7 @@ const styles = StyleSheet.create({
 	},
 	counterContainer: {
 		flexDirection: 'column',
-		backgroundColor: 'rgba(52,52,52,0.5)',
+		backgroundColor: 'rgba(250,250,250,0.5)',
 	},
 	counterText: {
 		color: COLORS.NDA_GREEN,

@@ -32,7 +32,7 @@ export default class mainScreen extends Component {
 			isSideMenuVisible: false,
             		NDA_news: [],
             		loading: true,
-            		showNews: false,
+            		showNews: true,
 		}
 	}
     
@@ -57,9 +57,8 @@ export default class mainScreen extends Component {
         
 		return 	(
             <SafeAreaView>
-            		<Header callBack={this.headerCallBack} />
-            		<View style={{height: WIDTH * .2}}/>
             		<ScrollView>
+            			<Header callBack={this.headerCallBack} />
                    		<Image style={styles.headerImage}
             				source={require('./Images/text_logo.png')}
             			/>
@@ -190,6 +189,7 @@ export default class mainScreen extends Component {
 
 const styles = StyleSheet.create({
 	headerImage: {
+		marginTop: HEIGHT * 0.1,
 		marginLeft: 10,
 		marginRight: 10,
 		resizeMode: 'stretch',
