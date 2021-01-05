@@ -18,7 +18,7 @@ const WIDTH = Dimensions.get('window').width;
 export default class Header extends Component {
 	constructor(props: Props) {
 		super(props);
-		
+		console.log("header says height = " + HEIGHT);
 		this.state = {
 			menuVisible: false,
 		}
@@ -30,33 +30,32 @@ export default class Header extends Component {
 		return (
 			<View style={styles.header}>
 				<Modal
-                        		isVisible={this.state.menuVisible}
-                                onBackdropPress={this.toggleSideMenu}
-                                onSwipeComplete={this.toggleSideMenu}
-                                animationIn="slideInLeft" 
-                                animationOut="slideOutLeft"
-                                swipeDirection="left"
-                                style={styles.sideMenuStyle}
-                        	>
-                        		<SideMenu parentFunction={this.parentFunction}/>
-                    	</Modal>
-                    	<View style={styles.iconContainer}>
-                        		<Icon.Button iconStyle={styles.menuIcon}
-                        			name="bars"
-                          		size={50}
-                         			color={COLORS.WHITE}
-                           		backgroundColor={COLORS.NDA_BLUE}
-                         			onPress={() => this.toggleSideMenu()}
-                            	/>
-                        </View>
-                        <View style={styles.logoContainer}>
-                    		<Image
-                        			style={styles.logo}
-                        			source={require('./images/circle_logo.png')}
-                        		/>
-                    	</View>
-                    	{this.renderTitle()}
-                    </View>
+                    isVisible={this.state.menuVisible}
+                    onBackdropPress={this.toggleSideMenu}
+                    onSwipeComplete={this.toggleSideMenu}
+                    animationIn="slideInLeft" 
+                    animationOut="slideOutLeft"
+                    swipeDirection="left"
+                    style={styles.sideMenuStyle} >
+                    <SideMenu parentFunction={this.parentFunction}/>
+                </Modal>
+                <View style={styles.iconContainer}>
+                    <Icon.Button iconStyle={styles.menuIcon}
+                        name="bars"
+                        size={50}
+                        color={COLORS.WHITE}
+                        backgroundColor={COLORS.NDA_BLUE}
+                        onPress={() => this.toggleSideMenu()}
+                    />
+                </View>
+                <View style={styles.logoContainer}>
+                    <Image
+                        style={styles.logo}
+                        source={require('./images/circle_logo.png')}
+                    />
+                </View>
+                {this.renderTitle()}
+            </View>
 		)
 	}
 	
@@ -111,7 +110,7 @@ const styles = StyleSheet.create({
 		backgroundColor: COLORS.NDA_BLUE,
         	height: HEIGHT * .15,
 		flexDirection: 'column-reverse',
-		marginBottom: 0,
+		margin: 0,
 	},
 	headerText: {
 		margin: 5,
