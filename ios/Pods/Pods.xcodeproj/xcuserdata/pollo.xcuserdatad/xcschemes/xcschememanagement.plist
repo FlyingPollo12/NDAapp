@@ -264,6 +264,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>react-native-progress-bar-android.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>react-native-progress-view.xcscheme</key>
 		<dict>
 			<key>isShown</key>

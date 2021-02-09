@@ -7,6 +7,7 @@ import donations from './source/donationScreen.js';
 import parent from './source/parentScreen.js';
 import student from './source/studentScreen.js';
 import alumni from './source/alumniScreen.js';
+import menu from './source/menu.js';
 
 
 const Stack = createStackNavigator();
@@ -27,6 +28,7 @@ export default class App extends Component {
 						<Stack.Screen name="parentScreen" component={parent} />
 						<Stack.Screen name="studentScreen" component={student} />
 						<Stack.Screen name="alumniScreen" component={alumni} />
+    					<Stack.Screen name="menuScreen" component={menu} />
     				</Stack.Navigator>
   			</NavigationContainer>
 		);
