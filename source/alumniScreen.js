@@ -31,7 +31,7 @@ export default class alumni extends React.Component {
       showHOF: false,
     };
   }
-    
+
   render() {
     return (
       <SafeAreaView style={styles.page}>
@@ -51,7 +51,6 @@ export default class alumni extends React.Component {
                 <Text style={styles.taskBtnTxt}>Hall of Fame</Text>
             </TouchableOpacity>
         </View>
-            
               
         <ImageBackground
             source={require('./images/NDA_SchoolFront.png')}
@@ -108,6 +107,9 @@ export default class alumni extends React.Component {
                 backgroundColor={COLORS.NDA_BLUE}
                 onPress={() => this.toggleModal(3)}>
             </Icon.Button>
+            
+            <View style={styles.webViewTop}></View>
+            
             <WebView
                 style={styles.webview}
                 ref={webView => (this.webView = webView)}
@@ -182,11 +184,11 @@ const styles = StyleSheet.create({
     webView: {
         bottom: 0,
 		padding: 0,
-		marginLeft: 0,
+		margin: 0,
         flexDirection: 'column',
         position: 'absolute',
 		width: WIDTH,
-		height: HEIGHT * .975,
+		height: HEIGHT,
     },
     taskBar: {
         zIndex: 1,
@@ -211,6 +213,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         textAlignVertical: 'center',
         color: COLORS.WHITE,  
+    },
+    webViewTop: {
+        flex: 1,
+        backgroundColor: COLORS.NDA_OFF_BLUE
     },
     
 })
